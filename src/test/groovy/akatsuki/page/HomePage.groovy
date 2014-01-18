@@ -5,9 +5,8 @@ import akatsuki.path.PathPresentation
 class HomePage extends BasePage {
 
   static url = PathPresentation.BASE
-  static at = { title == "Welcome to akatsuki presentation" }
+  static at = { title == "UK Certificates" }
 
   static content = {
-    locationField { $('.location') }
   }
 }

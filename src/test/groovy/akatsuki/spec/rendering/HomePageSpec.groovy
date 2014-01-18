@@ -7,14 +7,7 @@ import akatsuki.spec.BaseSpecification
 class HomePageSpec extends BaseSpecification {
 
   def "Homepage renders correctly"() {
-    given:
-      presentation.get(path: PathFixture.RESET)
-
-    when:
+    expect:
       toAt HomePage
-
-    then:
-      locationField.displayed
-      locationField.@placeholder == 'Enter your town/postcode'
   }
 }
