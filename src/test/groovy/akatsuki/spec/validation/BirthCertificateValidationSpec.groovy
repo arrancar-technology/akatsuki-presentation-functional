@@ -29,6 +29,17 @@ class BirthCertificateValidationSpec extends BaseSpecification {
       formBirth.dateOfBirth.year.error.message.text() == 'Please enter year of birth in YYYY format'
 
     when:
+      formBirth.dateOfBirth.day = '3'
+      formBirth.dateOfBirth.month = 'July'
+      formBirth.dateOfBirth.year = '1981'
+
+    then:
+      !formBirth.dateOfBirth.error.isTrue()
+      !formBirth.dateOfBirth.day.error.isTrue()
+      !formBirth.dateOfBirth.month.error.isTrue()
+      !formBirth.dateOfBirth.year.error.isTrue()
+
+    when:
       formBirth.placeOfBirth.click()
 
     then:

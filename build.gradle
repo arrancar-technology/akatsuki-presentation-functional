@@ -14,6 +14,7 @@ dependencies {
   def gebVersion = '0.9.0-RC-1'
   def spockVersion = '0.7-groovy-2.0'
   def seleniumVersion = '2.37.1'
+  def seleniumSupportVersion = '2.39.0'
 
   testCompile "org.gebish:geb-spock:$gebVersion"
   testCompile "org.spockframework:spock-core:$spockVersion", {
@@ -27,6 +28,7 @@ dependencies {
   // Drivers
   drivers.each { driver ->
     testCompile "org.seleniumhq.selenium:selenium-$driver-driver:$seleniumVersion"
+    testCompile "org.seleniumhq.selenium:selenium-support:$seleniumSupportVersion"
   }
 }
 
