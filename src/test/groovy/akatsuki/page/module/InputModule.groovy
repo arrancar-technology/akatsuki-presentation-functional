@@ -8,4 +8,12 @@ class InputModule extends Module {
   static content = {
     error { module ErrorModule, $().closest(errorContainerSelector ?: '.form-group') }
   }
+
+  def isSuccess() {
+    return error.hasClass('has-success')
+  }
+
+  def isError() {
+    return error.hasClass('has-error')
+  }
 }

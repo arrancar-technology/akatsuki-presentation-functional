@@ -7,8 +7,4 @@ class ErrorModule extends Module {
   static content = {
     message(required: false) { $().closest('body').find('.popover') }
   }
-
-  def isTrue() {
-    return $().hasClass('has-error')
-  }
 }
