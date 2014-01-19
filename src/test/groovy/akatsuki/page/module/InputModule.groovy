@@ -4,7 +4,7 @@ import geb.Module
 
 class InputModule extends Module {
 
-  def inError() {
-    return $().parent().parent().hasClass('has-error')
+  static content = {
+    error { module ErrorModule, $().parent().parent() }
   }
 }

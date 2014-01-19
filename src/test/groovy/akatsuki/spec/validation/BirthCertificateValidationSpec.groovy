@@ -13,8 +13,34 @@ class BirthCertificateValidationSpec extends BaseSpecification {
       formBirth.stepNavigation.nextButton.click()
 
     then:
-      formBirth.placeOfBirth.inError()
-      formBirth.lastNameAtBirth.inError()
-      formBirth.firstNameAtBirth.inError()
+      formBirth.dateOfBirth.error.isTrue()
+      formBirth.placeOfBirth.error.isTrue()
+      formBirth.lastNameAtBirth.error.isTrue()
+      formBirth.firstNameAtBirth.error.isTrue()
+
+    when:
+      interact { moveToElement(formBirth.dateOfBirth) }
+      formBirth.dateOfBirth.year.click()
+
+    then:
+      formBirth.dateOfBirth.year.error.message.text() == 'Please enter year of birth in YYYY format'
+
+    when:
+      formBirth.placeOfBirth.click()
+
+    then:
+      formBirth.placeOfBirth.error.message.text() == 'Please enter place of birth'
+
+    when:
+      formBirth.lastNameAtBirth.click()
+
+    then:
+      formBirth.lastNameAtBirth.error.message.text() == 'Please enter last name at birth'
+
+    when:
+      formBirth.firstNameAtBirth.click()
+
+    then:
+      formBirth.firstNameAtBirth.error.message.text() == 'Please enter first name at birth'
   }
 }
