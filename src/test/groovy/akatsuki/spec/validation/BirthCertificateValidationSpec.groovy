@@ -14,6 +14,9 @@ class BirthCertificateValidationSpec extends BaseSpecification {
 
     then:
       formBirth.dateOfBirth.error.isTrue()
+      formBirth.dateOfBirth.day.error.isTrue()
+      formBirth.dateOfBirth.month.error.isTrue()
+      formBirth.dateOfBirth.year.error.isTrue()
       formBirth.placeOfBirth.error.isTrue()
       formBirth.lastNameAtBirth.error.isTrue()
       formBirth.firstNameAtBirth.error.isTrue()
