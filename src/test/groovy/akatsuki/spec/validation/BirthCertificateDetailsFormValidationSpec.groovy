@@ -3,9 +3,9 @@ package akatsuki.spec.validation
 import akatsuki.page.BirthCertificatePage
 import akatsuki.spec.BaseSpecification
 
-class BirthCertificateValidationSpec extends BaseSpecification {
+class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
 
-  def "birth certificate form has correct validations"() {
+  def "birth details form has correct validations"() {
     given:
       toAt BirthCertificatePage
 

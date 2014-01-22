@@ -1,6 +1,6 @@
 package akatsuki.page.module
 
-class FormBirthModule extends FormModule {
+class FormBirthDetailsModule extends FormModule {
   static content = {
     dateOfBirth { module InputDateModule, $('.date-of-birth-container') }
     placeOfBirth { module InputTextFieldModule, $('#place-of-birth') }
