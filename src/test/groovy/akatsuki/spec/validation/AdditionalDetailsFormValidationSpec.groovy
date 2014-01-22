@@ -27,5 +27,59 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.city.isError()
       formAdditional.address.postcode.isError()
       formAdditional.address.phone.isError()
+
+    when:
+      formAdditional.numberOfApostilledCopies = '1'
+
+    then:
+      formAdditional.numberOfApostilledCopies.isSuccess()
+
+    when:
+      formAdditional.address.address1.click()
+
+    then:
+      formAdditional.address.address1.error.message.text() == "Please enter your address"
+
+    when:
+      formAdditional.address.address1 = "Station Parade"
+
+    then:
+      formAdditional.address.address1.isSuccess()
+
+    when:
+      formAdditional.address.city.click()
+
+    then:
+      formAdditional.address.city.error.message.text() == "Please enter your city"
+
+    when:
+      formAdditional.address.city = "London"
+
+    then:
+      formAdditional.address.city.isSuccess()
+
+    when:
+      formAdditional.address.postcode.click()
+
+    then:
+      formAdditional.address.postcode.error.message.text() == "Please enter your postcode"
+
+    when:
+      formAdditional.address.postcode = "W8 9DF"
+
+    then:
+      formAdditional.address.postcode.isSuccess()
+
+    when:
+      formAdditional.address.phone.click()
+
+    then:
+      formAdditional.address.phone.error.message.text() == "Please enter your phone number"
+
+    when:
+      formAdditional.address.phone = "07157158989"
+
+    then:
+      formAdditional.address.phone.isSuccess()
   }
 }
