@@ -2,6 +2,7 @@ package akatsuki.page
 
 import akatsuki.page.module.FormAdditionalDetailsModule
 import akatsuki.page.module.FormBirthDetailsModule
+import akatsuki.page.module.FormPaymentDetailsModule
 import akatsuki.path.PathPresentation
 
 class BirthCertificatePage extends BasePage {
@@ -12,6 +13,7 @@ class BirthCertificatePage extends BasePage {
   static content = {
     formBirth { module FormBirthDetailsModule, $('.step.first') }
     formAdditional { module FormAdditionalDetailsModule, $('.step.second') }
+    formPayment { module FormPaymentDetailsModule, $('.step.third') }
   }
 
   def populateBirthDetails() {
@@ -21,5 +23,15 @@ class BirthCertificatePage extends BasePage {
     formBirth.placeOfBirth = 'London'
     formBirth.lastNameAtBirth = 'Tieria'
     formBirth.firstNameAtBirth = 'Erde'
+  }
+
+  def populateAdditionalDetails() {
+    formAdditional.numberOfCertificateCopies = '1'
+    formAdditional.numberOfApostilledCopies = '0'
+    formAdditional.address.country = 'United Kingdom'
+    formAdditional.address.address1 = 'Station Parade'
+    formAdditional.address.city = 'London'
+    formAdditional.address.postcode = 'W8 9DF'
+    formAdditional.address.phone = '07157158989'
   }
 }

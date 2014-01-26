@@ -34,10 +34,10 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.dateOfBirth.year = '1981'
 
     then:
-      !formBirth.dateOfBirth.isError()
-      !formBirth.dateOfBirth.day.isError()
-      !formBirth.dateOfBirth.month.isError()
-      !formBirth.dateOfBirth.year.isError()
+      formBirth.dateOfBirth.isSuccess()
+      formBirth.dateOfBirth.day.isSuccess()
+      formBirth.dateOfBirth.month.isSuccess()
+      formBirth.dateOfBirth.year.isSuccess()
 
     when:
       formBirth.placeOfBirth.click()

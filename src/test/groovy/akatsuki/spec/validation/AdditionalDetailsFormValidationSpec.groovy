@@ -22,9 +22,11 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.stepNavigation.nextButton.click()
 
     then:
+      formAdditional.numberOfCertificateCopies.isSuccess()
       formAdditional.numberOfApostilledCopies.isError()
       formAdditional.address.address1.isError()
       formAdditional.address.city.isError()
+      formAdditional.address.country.isSuccess()
       formAdditional.address.postcode.isError()
       formAdditional.address.phone.isError()
 
