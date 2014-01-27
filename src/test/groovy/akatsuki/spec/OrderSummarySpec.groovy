@@ -37,7 +37,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: --"
 
     when:
-      formBirth.dateOfBirth.day = '1'
+      formBirth.dateOfBirth.day = '1' // 0 indexed
       formBirth.dateOfBirth.month = 'July'
       formBirth.dateOfBirth.year = '1981'
       formBirth.placeOfBirth = 'London'
@@ -57,5 +57,26 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: Regene"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: Almark"
       orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: Ribbons"
+
+    when:
+      formBirth.stepNavigation.nextButton.click()
+      formAdditional.numberOfCertificateCopies = '2' // 0 indexed
+      formAdditional.numberOfApostilledCopies = '1'
+      formAdditional.address.address1 = 'Station Parade'
+      formAdditional.address.address2 = 'Kobe Road'
+      formAdditional.address.city = 'Tokyo'
+      formAdditional.address.postcode = 'W8 9DF'
+      formAdditional.address.country = 'Japan'
+      formAdditional.address.phone = '07157158989'
+
+    then:
+      orderSummary.additionalDetails.numberOfCopies.text() == "Number of Copies\n: 3"
+      orderSummary.additionalDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
+      orderSummary.additionalDetails.address1.text() == "Address 1\n: Station Parade"
+      orderSummary.additionalDetails.address2.text() == "Address 2\n: Kobe Road"
+      orderSummary.additionalDetails.city.text() == "City\n: Tokyo"
+      orderSummary.additionalDetails.postcode.text() == "Postcode\n: W8 9DF"
+      orderSummary.additionalDetails.country.text() == "Country\n: Japan"
+      orderSummary.additionalDetails.phone.text() == "Phone\n: 07157158989"
   }
 }
