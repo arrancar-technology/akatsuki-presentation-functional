@@ -35,5 +35,27 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: --"
       orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: -- / --"
       orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: --"
+
+    when:
+      formBirth.dateOfBirth.day = '1'
+      formBirth.dateOfBirth.month = 'July'
+      formBirth.dateOfBirth.year = '1981'
+      formBirth.placeOfBirth = 'London'
+      formBirth.lastNameAtBirth = 'Tieria'
+      formBirth.firstNameAtBirth = 'Erde'
+      formBirth.motherMaidenName = 'Regetta'
+      formBirth.motherFirstName = 'Regene'
+      formBirth.fatherLastName = 'Almark'
+      formBirth.fatherFirstName = 'Ribbons'
+
+    then:
+      orderSummary.certificateDetails.dateOfBirth.text() == "Date of Birth\n: 2 / July / 1981"
+      orderSummary.certificateDetails.placeOfBirth.text() == "Place of Birth\n: London"
+      orderSummary.certificateDetails.lastNameAtBirth.text() == "Last Name at Birth\n: Tieria"
+      orderSummary.certificateDetails.firstNameAtBirth.text() == "First Name at Birth\n: Erde"
+      orderSummary.certificateDetails.motherMaidenName.text() == "Mother's Maiden Name\n: Regetta"
+      orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: Regene"
+      orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: Almark"
+      orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: Ribbons"
   }
 }
