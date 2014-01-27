@@ -3,6 +3,8 @@ package akatsuki.page
 import akatsuki.page.module.FormAdditionalDetailsModule
 import akatsuki.page.module.FormBirthDetailsModule
 import akatsuki.page.module.FormPaymentDetailsModule
+import akatsuki.page.module.OrderSummaryBirthCertificateDetailsModule
+import akatsuki.page.module.OrderSummaryContainerModule
 import akatsuki.page.module.ProgressTrackerModule
 import akatsuki.path.PathPresentation
 
@@ -13,6 +15,7 @@ class BirthCertificatePage extends BasePage {
 
   static content = {
     progressTracker { module ProgressTrackerModule, $('.progress-tracker-container')}
+    orderSummary { module OrderSummaryContainerModule, $('.order-summary-details-container'), certificateDetailsModule: OrderSummaryBirthCertificateDetailsModule }
 
     formBirth { module FormBirthDetailsModule, $('.step.first') }
     formAdditional { module FormAdditionalDetailsModule, $('.step.second') }
