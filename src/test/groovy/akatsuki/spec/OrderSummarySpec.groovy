@@ -78,5 +78,23 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.additionalDetails.postcode.text() == "Postcode\n: W8 9DF"
       orderSummary.additionalDetails.country.text() == "Country\n: Japan"
       orderSummary.additionalDetails.phone.text() == "Phone\n: 07157158989"
+
+    when:
+      formAdditional.stepNavigation.nextButton.click()
+      formPayment.email = "tieria.erde@email.com"
+      formPayment.cardType = "Visa Debit"
+      formPayment.cardholderName = "M T Erde"
+      formPayment.cardNumber = "4444333322221111"
+      formPayment.expiryDate.month = 'July'
+      formPayment.expiryDate.year = '2020'
+      formPayment.cardVerificationNumber = '123'
+
+    then:
+      orderSummary.paymentDetails.emailAddress.text() == "Email Address\n: tieria.erde@email.com"
+      orderSummary.paymentDetails.cardType.text() == "Card Type\n: Visa Debit"
+      orderSummary.paymentDetails.cardholderName.text() == "Cardholder Name\n: M T Erde"
+      orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4444333322221111"
+      orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: July / 2020"
+      orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: 123"
   }
 }
