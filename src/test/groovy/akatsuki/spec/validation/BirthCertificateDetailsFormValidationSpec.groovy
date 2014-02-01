@@ -58,7 +58,7 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.lastNameAtBirth.error.message.text() == 'Please enter last name at birth'
 
     when:
-      formBirth.lastNameAtBirth = 'Tieria'
+      formBirth.lastNameAtBirth = 'Erde'
 
     then:
       formBirth.lastNameAtBirth.isSuccess()
@@ -70,7 +70,7 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.firstNameAtBirth.error.message.text() == 'Please enter first name at birth'
 
     when:
-      formBirth.firstNameAtBirth = 'Erde'
+      formBirth.firstNameAtBirth = 'Tieria'
 
     then:
       formBirth.firstNameAtBirth.isSuccess()

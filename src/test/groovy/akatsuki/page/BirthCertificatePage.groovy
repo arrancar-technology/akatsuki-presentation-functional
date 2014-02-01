@@ -27,8 +27,8 @@ class BirthCertificatePage extends BasePage {
     formBirth.dateOfBirth.month = 'July'
     formBirth.dateOfBirth.year = '1981'
     formBirth.placeOfBirth = 'London'
-    formBirth.lastNameAtBirth = 'Tieria'
-    formBirth.firstNameAtBirth = 'Erde'
+    formBirth.lastNameAtBirth = 'Erde'
+    formBirth.firstNameAtBirth = 'Tieria'
   }
 
   def populateAdditionalDetails() {
@@ -39,5 +39,15 @@ class BirthCertificatePage extends BasePage {
     formAdditional.address.city = 'London'
     formAdditional.address.postcode = 'W8 9DF'
     formAdditional.address.phone = '07157158989'
+  }
+
+  def populatePaymentDetails() {
+    formPayment.email = "tieria.erde@email.com"
+    formPayment.cardType = "Visa Debit"
+    formPayment.cardholderName = "M T Erde"
+    formPayment.cardNumber = "4444333322221111"
+    formPayment.expiryDate.month = 'July'
+    formPayment.expiryDate.year = '2020'
+    formPayment.cardVerificationNumber = '123'
   }
 }

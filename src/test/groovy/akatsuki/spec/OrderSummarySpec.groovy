@@ -41,8 +41,8 @@ class OrderSummarySpec extends BaseSpecification {
       formBirth.dateOfBirth.month = 'July'
       formBirth.dateOfBirth.year = '1981'
       formBirth.placeOfBirth = 'London'
-      formBirth.lastNameAtBirth = 'Tieria'
-      formBirth.firstNameAtBirth = 'Erde'
+      formBirth.lastNameAtBirth = 'Erde'
+      formBirth.firstNameAtBirth = 'Tieria'
       formBirth.motherMaidenName = 'Regetta'
       formBirth.motherFirstName = 'Regene'
       formBirth.fatherLastName = 'Almark'
@@ -51,8 +51,8 @@ class OrderSummarySpec extends BaseSpecification {
     then:
       orderSummary.certificateDetails.dateOfBirth.text() == "Date of Birth\n: 2 / July / 1981"
       orderSummary.certificateDetails.placeOfBirth.text() == "Place of Birth\n: London"
-      orderSummary.certificateDetails.lastNameAtBirth.text() == "Last Name at Birth\n: Tieria"
-      orderSummary.certificateDetails.firstNameAtBirth.text() == "First Name at Birth\n: Erde"
+      orderSummary.certificateDetails.lastNameAtBirth.text() == "Last Name at Birth\n: Erde"
+      orderSummary.certificateDetails.firstNameAtBirth.text() == "First Name at Birth\n: Tieria"
       orderSummary.certificateDetails.motherMaidenName.text() == "Mother's Maiden Name\n: Regetta"
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: Regene"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: Almark"
