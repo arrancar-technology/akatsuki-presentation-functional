@@ -1,7 +1,8 @@
-package akatsuki.spec
+package akatsuki.spec.e2e
 
 import akatsuki.page.AdminOrdersListPage
 import akatsuki.page.BirthCertificatePage
+import akatsuki.spec.BaseSpecification
 
 class CertificateRequestSpec extends BaseSpecification {
 
@@ -11,20 +12,21 @@ class CertificateRequestSpec extends BaseSpecification {
 
     and:
       populateBirthDetails()
-      formBirth.stepNavigation.nextButton.clic()
+      formBirth.stepNavigation.nextButton.click()
 
     and:
       populateAdditionalDetails()
-      formAdditional.stepNavigation.nextButton.clic()
+      formAdditional.stepNavigation.nextButton.click()
 
     and:
       populatePaymentDetails()
-      formPayment.stepNavigation.paymentButton.clic()
+      formPayment.stepNavigation.paymentButton.click()
 
     when:
       toAt AdminOrdersListPage
 
     then:
-      orders('birth').rows[0].cells*.text() == ['Tieria', 'Erde', '1981', 'July', '2']
+      orders('birth').rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Edit']
+      orders('birth').rows[1].cells*.text() == ['1', 'Tieria', '', 'Edit']
   }
 }
