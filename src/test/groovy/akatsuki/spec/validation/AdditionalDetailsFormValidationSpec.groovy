@@ -14,16 +14,15 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formBirth.stepNavigation.nextButton.click()
 
     expect: // Check defaults
-      formAdditional.numberOfCertificateCopies.text() == '1'
-      formAdditional.numberOfApostilledCopies.text() == '-'
       formAdditional.address.country.text() == 'United Kingdom'
 
     when:
       formAdditional.stepNavigation.nextButton.click()
 
     then:
-      formAdditional.numberOfCertificateCopies.isSuccess()
-      formAdditional.numberOfApostilledCopies.isError()
+      formAdditional.firstName.isError()
+      formAdditional.lastName.isError()
+      formAdditional.email.isError()
       formAdditional.address.address1.isError()
       formAdditional.address.city.isError()
       formAdditional.address.country.isSuccess()
@@ -31,10 +30,46 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.phone.isError()
 
     when:
-      formAdditional.numberOfApostilledCopies = '1'
+      formAdditional.firstName.click()
 
     then:
-      formAdditional.numberOfApostilledCopies.isSuccess()
+      formAdditional.firstName.error.message.text() == "Please enter your first name"
+
+    when:
+      formAdditional.firstName = "Lockon"
+
+    then:
+      formAdditional.firstName.isSuccess()
+
+    when:
+      formAdditional.lastName.click()
+
+    then:
+      formAdditional.lastName.error.message.text() == "Please enter your last name"
+
+    when:
+      formAdditional.lastName = "Stratos"
+
+    then:
+      formAdditional.lastName.isSuccess()
+
+    when:
+      formAdditional.email.click()
+
+    then:
+      formAdditional.email.error.message.text() == "Please enter your email address"
+
+    when:
+      formAdditional.email = "abc"
+
+    then:
+      formAdditional.email.isError()
+
+    when:
+      formAdditional.email = 'lockon.stratos@gmail.com'
+
+    then:
+      formAdditional.email.isSuccess()
 
     when:
       formAdditional.address.address1.click()

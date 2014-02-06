@@ -10,6 +10,8 @@ class FormBirthDetailsModule extends FormModule {
     motherFirstName { module InputTextFieldModule, $('#mother-first-name') }
     fatherLastName { module InputTextFieldModule, $('#father-last-name') }
     fatherFirstName { module InputTextFieldModule, $('#father-first-name') }
+    numberOfCertificateCopies { module InputDropdownModule, $('#number-of-copies') }
+    numberOfApostilledCopies { module InputDropdownModule, $('#number-of-apostilles') }
 
     stepNavigation { module StepNavigationModule, $('.step-navigation')}
   }

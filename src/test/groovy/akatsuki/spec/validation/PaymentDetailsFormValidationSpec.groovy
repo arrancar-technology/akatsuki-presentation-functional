@@ -24,7 +24,6 @@ class PaymentDetailsFormValidationSpec extends BaseSpecification {
       formPayment.stepNavigation.paymentButton.click()
 
     then:
-      formPayment.email.isError()
       formPayment.cardType.isSuccess()
       formPayment.cardholderName.isError()
       formPayment.cardNumber.isError()
@@ -32,24 +31,6 @@ class PaymentDetailsFormValidationSpec extends BaseSpecification {
       formPayment.expiryDate.month.isError()
       formPayment.expiryDate.year.isError()
       formPayment.cardVerificationNumber.isError()
-
-    when:
-      formPayment.email.click()
-
-    then:
-      formPayment.email.error.message.text() == "Please enter your email address"
-
-    when:
-      formPayment.email = "abc"
-
-    then:
-      formPayment.email.isError()
-
-    when:
-      formPayment.email = 'tieria.erde@email.com'
-
-    then:
-      formPayment.email.isSuccess()
 
     when:
       formPayment.cardholderName.click()

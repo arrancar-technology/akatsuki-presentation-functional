@@ -2,15 +2,26 @@ package akatsuki.spec.e2e
 
 import akatsuki.page.AdminOrdersListPage
 import akatsuki.page.BirthCertificatePage
+import akatsuki.page.HomePage
 import akatsuki.spec.BaseSpecification
 
 class CertificateRequestSpec extends BaseSpecification {
 
   def "certificate request is saved correctly"() {
     given:
-      toAt BirthCertificatePage
+      toAt HomePage
 
-    and:
+    when:
+      panelBirth.applyButton.click()
+      panelBirth.form.firstName = 'Lockon'
+      panelBirth.form.lastName = 'Stratos'
+      panelBirth.form.email = 'lockon.stratos@gmail.com'
+      panelBirth.form.processButton.click()
+
+    then:
+      at BirthCertificatePage
+
+    when:
       populateBirthDetails()
       formBirth.stepNavigation.nextButton.click()
 
@@ -22,11 +33,11 @@ class CertificateRequestSpec extends BaseSpecification {
       populatePaymentDetails()
       formPayment.stepNavigation.paymentButton.click()
 
-    when:
+    and:
       toAt AdminOrdersListPage
 
     then:
-      orders('birth').rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Edit']
-      orders('birth').rows[1].cells*.text() == ['1', 'Tieria', '', 'Edit']
+      orders('birth').rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details']
+      orders('birth').rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'received', 'Details']
   }
 }

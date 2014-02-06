@@ -23,26 +23,33 @@ class BirthCertificatePage extends BasePage {
   }
 
   def populateBirthDetails() {
-    formBirth.dateOfBirth.day = '1'
+    formBirth.dateOfBirth.day = '1' // 0 indexed
     formBirth.dateOfBirth.month = 'July'
     formBirth.dateOfBirth.year = '1981'
     formBirth.placeOfBirth = 'London'
     formBirth.lastNameAtBirth = 'Erde'
     formBirth.firstNameAtBirth = 'Tieria'
+    formBirth.motherMaidenName = 'Regetta'
+    formBirth.motherFirstName = 'Regene'
+    formBirth.fatherLastName = 'Almark'
+    formBirth.fatherFirstName = 'Ribbons'
+    formBirth.numberOfCertificateCopies = '1'
+    formBirth.numberOfApostilledCopies = '1'
   }
 
   def populateAdditionalDetails() {
-    formAdditional.numberOfCertificateCopies = '1'
-    formAdditional.numberOfApostilledCopies = '0'
-    formAdditional.address.country = 'United Kingdom'
+    formAdditional.firstName = 'Lockon'
+    formAdditional.lastName = 'Stratos'
+    formAdditional.email = 'lockon.stratos@gmail.com'
     formAdditional.address.address1 = 'Station Parade'
-    formAdditional.address.city = 'London'
+    formAdditional.address.address2 = 'Kobe Road'
+    formAdditional.address.city = 'Tokyo'
     formAdditional.address.postcode = 'W8 9DF'
+    formAdditional.address.country = 'Japan'
     formAdditional.address.phone = '07157158989'
   }
 
   def populatePaymentDetails() {
-    formPayment.email = "tieria.erde@email.com"
     formPayment.cardType = "Visa Debit"
     formPayment.cardholderName = "M T Erde"
     formPayment.cardNumber = "4444333322221111"

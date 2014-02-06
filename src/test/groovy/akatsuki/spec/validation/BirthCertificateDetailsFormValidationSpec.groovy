@@ -9,6 +9,10 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
     given:
       toAt BirthCertificatePage
 
+    expect: // Check defaults
+      formBirth.numberOfCertificateCopies.text() == '1'
+      formBirth.numberOfApostilledCopies.text() == '-'
+
     when:
       formBirth.stepNavigation.nextButton.click()
 
@@ -20,6 +24,8 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.placeOfBirth.isError()
       formBirth.lastNameAtBirth.isError()
       formBirth.firstNameAtBirth.isError()
+      formBirth.numberOfCertificateCopies.isSuccess()
+      formBirth.numberOfApostilledCopies.isError()
 
     when:
       interact { moveToElement(formBirth.dateOfBirth) }
@@ -74,5 +80,11 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
 
     then:
       formBirth.firstNameAtBirth.isSuccess()
+
+    when:
+      formBirth.numberOfApostilledCopies = '1'
+
+    then:
+      formBirth.numberOfApostilledCopies.isSuccess()
   }
 }

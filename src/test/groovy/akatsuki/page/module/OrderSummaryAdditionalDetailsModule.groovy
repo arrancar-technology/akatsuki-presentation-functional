@@ -3,8 +3,9 @@ package akatsuki.page.module
 class OrderSummaryAdditionalDetailsModule extends FormModule {
 
   static content = {
-    numberOfCopies { $('.numberOfCopies') }
-    apostilledCopies { $('.apostilledCopies') }
+    firstName { $('.firstName') }
+    lastName { $('.lastName') }
+    email { $('.email') }
     phone { $('.phone') }
     address1 { $('.address-1') }
     address2 { $('.address-2') }
