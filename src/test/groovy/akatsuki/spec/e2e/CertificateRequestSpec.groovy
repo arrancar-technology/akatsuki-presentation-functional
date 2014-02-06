@@ -20,6 +20,9 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       at BirthCertificatePage
+      formAdditional.firstName.value() == 'Lockon'
+      formAdditional.lastName.value() == 'Stratos'
+      formAdditional.email.value() == 'lockon.stratos@gmail.com'
 
     when:
       populateBirthDetails()
