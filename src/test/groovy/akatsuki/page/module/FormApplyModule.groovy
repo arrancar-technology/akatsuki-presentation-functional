@@ -5,9 +5,9 @@ import geb.Module
 class FormApplyModule extends Module {
 
   static content = {
-    firstName { $('#first-name') }
-    lastName { $('#last-name') }
-    email { $('#email') }
+    firstName { module InputTextFieldModule, $('#first-name') }
+    lastName { module InputTextFieldModule, $('#last-name') }
+    email { module InputTextFieldModule, $('#email') }
     processButton { $('button') }
   }
 }
