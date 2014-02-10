@@ -11,7 +11,7 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
 
     expect: // Check defaults
       formBirth.numberOfCertificateCopies.text() == '1'
-      formBirth.numberOfApostilledCopies.text() == '-'
+      formBirth.numberOfApostilledCopies.text() == '-- (£75 per stamp)'
 
     when:
       formBirth.stepNavigation.nextButton.click()
@@ -24,6 +24,7 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.placeOfBirth.isError()
       formBirth.lastNameAtBirth.isError()
       formBirth.firstNameAtBirth.isError()
+      formBirth.serviceType.isSuccess()
       formBirth.numberOfCertificateCopies.isSuccess()
       formBirth.numberOfApostilledCopies.isError()
 

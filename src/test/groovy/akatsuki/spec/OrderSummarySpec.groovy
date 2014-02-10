@@ -4,7 +4,7 @@ import akatsuki.page.BirthCertificatePage
 
 class OrderSummarySpec extends BaseSpecification {
 
-  def "progress tracker shows correct state with each step"() {
+  def "order summary displays correct information"() {
     given:
       toAt BirthCertificatePage
 
@@ -17,8 +17,10 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: --"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: --"
       orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: --"
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
+      orderSummary.certificateDetails.total.text() == "Total\n: £25"
 
     and:
       orderSummary.additionalDetails.firstName.text() == "First Name\n: --"
@@ -50,8 +52,10 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: Regene"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: Almark"
       orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: Ribbons"
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Rapid"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 2"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
+      orderSummary.certificateDetails.total.text() == "Total\n: £155"
 
     when:
       formBirth.stepNavigation.nextButton.click()
@@ -78,5 +82,9 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4444333322221111"
       orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: July / 2020"
       orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: 123"
+  }
+
+  def "order summary displays correct price information"() {
+    // TODO: [DK] Implement this test...
   }
 }

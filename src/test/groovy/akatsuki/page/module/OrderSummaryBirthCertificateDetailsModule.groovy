@@ -11,7 +11,9 @@ class OrderSummaryBirthCertificateDetailsModule extends FormModule {
     motherFirstName { $('.motherFirstName') }
     fatherLastName { $('.fatherLastName') }
     fatherFirstName { $('.fatherFirstName') }
+    serviceType { $('.serviceType') }
     numberOfCopies { $('.numberOfCopies') }
     apostilledCopies { $('.apostilledCopies') }
+    total { $('.total') }
   }
 }

@@ -33,6 +33,7 @@ class BirthCertificatePage extends BasePage {
     formBirth.motherFirstName = 'Regene'
     formBirth.fatherLastName = 'Almark'
     formBirth.fatherFirstName = 'Ribbons'
+    formBirth.serviceType = 'rapid'
     formBirth.numberOfCertificateCopies = '1'
     formBirth.numberOfApostilledCopies = '1'
   }
