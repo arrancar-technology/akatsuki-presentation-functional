@@ -19,7 +19,7 @@ class StatusPageSpec extends BaseSpecification {
       toAt StatusPage
 
     then:
-      status('application').header.text() == 'APPLICATION'
+      waitFor { status('application').header.text() == 'APPLICATION' }
       status('application').rows[0].cells*.text() == ["applicationVersion", applicationVersion]
       status('application').rows[1].cells*.text() == ["commitHash", gitCommitHash]
 
@@ -37,7 +37,7 @@ class StatusPageSpec extends BaseSpecification {
       toAt StatusPage, 'application'
 
     then:
-      status('application').header.text() == 'APPLICATION'
+      waitFor { status('application').header.text() == 'APPLICATION' }
       status('application').rows[0].cells*.text() == ["applicationVersion", applicationVersion]
       status('application').rows[1].cells*.text() == ["commitHash", gitCommitHash]
 

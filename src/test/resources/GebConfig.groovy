@@ -26,6 +26,5 @@ environments {
 
   func01 {
     baseUrl = "http://akatsuki-presentation-func01.herokuapp.com"
-    driver = driverRemote
   }
 }

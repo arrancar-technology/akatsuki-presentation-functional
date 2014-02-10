@@ -19,7 +19,7 @@ class CertificateRequestSpec extends BaseSpecification {
       panelBirth.form.processButton.click()
 
     then:
-      at BirthCertificatePage
+      waitFor { at BirthCertificatePage }
       formAdditional.firstName.value() == 'Lockon'
       formAdditional.lastName.value() == 'Stratos'
       formAdditional.email.value() == 'lockon.stratos@gmail.com'
@@ -41,6 +41,6 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       orders('birth').rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details']
-      orders('birth').rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'received', 'Details']
+      waitFor { orders('birth').rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'received', 'Details'] }
   }
 }
