@@ -1,12 +1,20 @@
 package akatsuki.spec
 
-import akatsuki.page.StatusPage
+import akatsuki.page.admin.AdminStatusPage
 import akatsuki.path.PathFixture
 import akatsuki.path.PathPresentation
 
 class StatusPageSpec extends BaseSpecification {
 
-  def setup(){
+  def setupSpec() {
+    login()
+  }
+
+  def cleanupSpec() {
+    logout()
+  }
+
+  def setup() {
     presentation.get(path: PathFixture.RESET)
   }
 
@@ -16,7 +24,7 @@ class StatusPageSpec extends BaseSpecification {
       def gitCommitHash = presentation.get(path: PathFixture.STATUS_COMMIT_HASH).data.commitHash
 
     when:
-      toAt StatusPage
+      toAt AdminStatusPage
 
     then:
       waitFor { status('application').header.text() == 'APPLICATION' }
@@ -34,7 +42,7 @@ class StatusPageSpec extends BaseSpecification {
       def gitCommitHash = presentation.get(path: PathFixture.STATUS_COMMIT_HASH).data.commitHash
 
     when:
-      toAt StatusPage, 'application'
+      toAt AdminStatusPage, 'application'
 
     then:
       waitFor { status('application').header.text() == 'APPLICATION' }

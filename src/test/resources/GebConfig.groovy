@@ -9,6 +9,7 @@ waiting {
 baseUrl = "http://localhost:5000"
 reportsDir = 'build/reports'
 reporter = new PageSourceReporter()
+autoClearCookies = false
 
 def caps = new DesiredCapabilities(["javascriptEnabled": true,
                                     "takeScreenshot": true])

@@ -1,5 +1,6 @@
 package akatsuki.spec
 
+import akatsuki.page.admin.AdminLoginPage
 import akatsuki.path.PathFixture
 import geb.spock.GebReportingSpec
 import groovyx.net.http.RESTClient
@@ -24,5 +25,15 @@ class BaseSpecification extends GebReportingSpec {
 
   def setupSpec() {
     presentation.get(path: PathFixture.RESET)
+  }
+
+  def login() {
+    to AdminLoginPage
+    page.login()
+  }
+
+  def logout() {
+    to AdminLoginPage
+    page.logout()
   }
 }

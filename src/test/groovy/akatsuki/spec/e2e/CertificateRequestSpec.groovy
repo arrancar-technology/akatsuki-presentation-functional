@@ -1,11 +1,19 @@
 package akatsuki.spec.e2e
 
-import akatsuki.page.AdminOrdersListPage
+import akatsuki.page.admin.AdminOrdersListPage
 import akatsuki.page.BirthCertificatePage
 import akatsuki.page.HomePage
 import akatsuki.spec.BaseSpecification
 
 class CertificateRequestSpec extends BaseSpecification {
+
+  def setupSpec() {
+    login()
+  }
+
+  def cleanupSpec() {
+    logout()
+  }
 
   def "certificate request is saved correctly"() {
     given:
