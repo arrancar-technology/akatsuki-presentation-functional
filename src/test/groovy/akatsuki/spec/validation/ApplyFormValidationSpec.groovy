@@ -18,35 +18,15 @@ class ApplyFormValidationSpec extends BaseSpecification {
       panelBirth.form.lastName.isError()
       panelBirth.form.email.isError()
 
-    when:
-      panelBirth.form.firstName.click()
-
-    then:
-      panelBirth.form.firstName.error.message.text() == "Please enter your first name"
-
-    when:
-      panelBirth.form.firstName = "Lockon"
-
-    then:
-      panelBirth.form.firstName.isSuccess()
-
-    when:
-      panelBirth.form.lastName.click()
-
-    then:
-      panelBirth.form.lastName.error.message.text() == "Please enter your last name"
-
-    when:
-      panelBirth.form.lastName = "Stratos"
-
-    then:
-      panelBirth.form.lastName.isSuccess()
+    and:
+      checkErrorMessageAndValidate(panelBirth.form, 'firstName', 'Please enter your first name', 'Lockon')
+      checkErrorMessageAndValidate(panelBirth.form, 'lastName', 'Please enter your last name', 'Stratos')
 
     when:
       panelBirth.form.email.click()
 
     then:
-      panelBirth.form.email.error.message.text() == "Please enter your email address"
+      waitFor { panelBirth.form.email.error.message.text() == "Please enter your email address" }
 
     when:
       panelBirth.form.email = "abc"

@@ -11,7 +11,7 @@ import akatsuki.path.PathPresentation
 class BirthCertificatePage extends BasePage {
 
   static url = PathPresentation.CERTIFICATE_BIRTH
-  static at = { title == "UK Birth Certificate" }
+  static at = { title == "UK Official Certificate - Birth Certificate" }
 
   static content = {
     progressTracker { module ProgressTrackerModule, $('.progress-tracker-container')}
@@ -51,9 +51,7 @@ class BirthCertificatePage extends BasePage {
   }
 
   def populatePaymentDetails() {
-    formPayment.cardType = "Visa Debit"
-    formPayment.cardholderName = "M T Erde"
-    formPayment.cardNumber = "4444333322221111"
+    formPayment.cardNumber = "4242424242424242"
     formPayment.expiryDate.month = 'July'
     formPayment.expiryDate.year = '2020'
     formPayment.cardVerificationNumber = '123'

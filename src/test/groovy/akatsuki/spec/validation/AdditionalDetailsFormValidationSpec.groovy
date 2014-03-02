@@ -29,35 +29,15 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.postcode.isError()
       formAdditional.address.phone.isError()
 
-    when:
-      formAdditional.firstName.click()
-
-    then:
-      formAdditional.firstName.error.message.text() == "Please enter your first name"
-
-    when:
-      formAdditional.firstName = "Lockon"
-
-    then:
-      formAdditional.firstName.isSuccess()
-
-    when:
-      formAdditional.lastName.click()
-
-    then:
-      formAdditional.lastName.error.message.text() == "Please enter your last name"
-
-    when:
-      formAdditional.lastName = "Stratos"
-
-    then:
-      formAdditional.lastName.isSuccess()
+    and:
+      checkErrorMessageAndValidate(formAdditional, 'firstName', 'Please enter your first name', 'Lockon')
+      checkErrorMessageAndValidate(formAdditional, 'lastName', 'Please enter your last name', 'Stratos')
 
     when:
       formAdditional.email.click()
 
     then:
-      formAdditional.email.error.message.text() == "Please enter your email address"
+      waitFor { formAdditional.email.error.message.text() == "Please enter your email address" }
 
     when:
       formAdditional.email = "abc"
@@ -75,7 +55,7 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.address1.click()
 
     then:
-      formAdditional.address.address1.error.message.text() == "Please enter your address"
+      waitFor { formAdditional.address.address1.error.message.text() == "Please enter your address" }
 
     when:
       formAdditional.address.address1 = "Station Parade"
@@ -87,7 +67,7 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.city.click()
 
     then:
-      formAdditional.address.city.error.message.text() == "Please enter your city"
+      waitFor { formAdditional.address.city.error.message.text() == "Please enter your city" }
 
     when:
       formAdditional.address.city = "London"
@@ -99,7 +79,7 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.postcode.click()
 
     then:
-      formAdditional.address.postcode.error.message.text() == "Please enter your postcode"
+      waitFor { formAdditional.address.postcode.error.message.text() == "Please enter your postcode" }
 
     when:
       formAdditional.address.postcode = "W8 9DF"
@@ -111,7 +91,7 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.address.phone.click()
 
     then:
-      formAdditional.address.phone.error.message.text() == "Please enter your phone number"
+      waitFor { formAdditional.address.phone.error.message.text() == "Please enter your phone number" }
 
     when:
       formAdditional.address.phone = "07157158989"

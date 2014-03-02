@@ -36,4 +36,14 @@ class BaseSpecification extends GebReportingSpec {
     to AdminLoginPage
     page.logout()
   }
+
+  def checkErrorMessageAndValidate(form, field, errorMessage, validValue) {
+    form."$field".click()
+    waitFor { form."$field".error.message.text() == errorMessage }
+
+    form."$field" = validValue
+    form."$field".isSuccess()
+
+    return true
+  }
 }

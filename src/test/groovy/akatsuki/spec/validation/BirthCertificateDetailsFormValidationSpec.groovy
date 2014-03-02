@@ -46,41 +46,10 @@ class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
       formBirth.dateOfBirth.month.isSuccess()
       formBirth.dateOfBirth.year.isSuccess()
 
-    when:
-      formBirth.placeOfBirth.click()
-
-    then:
-      formBirth.placeOfBirth.error.message.text() == 'Please enter place of birth'
-
-    when:
-      formBirth.placeOfBirth = 'London'
-
-    then:
-      formBirth.placeOfBirth.isSuccess()
-
-    when:
-      formBirth.lastNameAtBirth.click()
-
-    then:
-      formBirth.lastNameAtBirth.error.message.text() == 'Please enter last name at birth'
-
-    when:
-      formBirth.lastNameAtBirth = 'Erde'
-
-    then:
-      formBirth.lastNameAtBirth.isSuccess()
-
-    when:
-      formBirth.firstNameAtBirth.click()
-
-    then:
-      formBirth.firstNameAtBirth.error.message.text() == 'Please enter first name at birth'
-
-    when:
-      formBirth.firstNameAtBirth = 'Tieria'
-
-    then:
-      formBirth.firstNameAtBirth.isSuccess()
+    and:
+      checkErrorMessageAndValidate(formBirth, 'placeOfBirth', 'Please enter place of birth', 'London')
+      checkErrorMessageAndValidate(formBirth, 'lastNameAtBirth', 'Please enter last name at birth', 'Erde')
+      checkErrorMessageAndValidate(formBirth, 'firstNameAtBirth', 'Please enter first name at birth', 'Tieria')
 
     when:
       formBirth.numberOfApostilledCopies = '1'

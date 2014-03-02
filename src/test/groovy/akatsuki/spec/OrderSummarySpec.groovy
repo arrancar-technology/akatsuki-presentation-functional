@@ -34,8 +34,6 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.additionalDetails.country.text() == "Country\n: United Kingdom"
 
     and:
-      orderSummary.paymentDetails.cardType.text() == "Card Type\n: Visa"
-      orderSummary.paymentDetails.cardholderName.text() == "Cardholder Name\n: --"
       orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: --"
       orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: -- / --"
       orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: --"
@@ -77,9 +75,7 @@ class OrderSummarySpec extends BaseSpecification {
       populatePaymentDetails()
 
     then:
-      orderSummary.paymentDetails.cardType.text() == "Card Type\n: Visa Debit"
-      orderSummary.paymentDetails.cardholderName.text() == "Cardholder Name\n: M T Erde"
-      orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4444333322221111"
+      orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4242424242424242"
       orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: July / 2020"
       orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: 123"
   }

@@ -17,32 +17,15 @@ class PaymentDetailsFormValidationSpec extends BaseSpecification {
       populateAdditionalDetails()
       formAdditional.stepNavigation.nextButton.click()
 
-    expect: // Check defaults
-      formPayment.cardType.text() == 'Visa'
-
     when:
       formPayment.stepNavigation.paymentButton.click()
 
     then:
-      formPayment.cardType.isSuccess()
-      formPayment.cardholderName.isError()
       formPayment.cardNumber.isError()
       formPayment.expiryDate.isError()
       formPayment.expiryDate.month.isError()
       formPayment.expiryDate.year.isError()
       formPayment.cardVerificationNumber.isError()
-
-    when:
-      formPayment.cardholderName.click()
-
-    then:
-      formPayment.cardholderName.error.message.text() == "Please enter cardholder's name as it is displayed on the card"
-
-    when:
-      formPayment.cardholderName = "MR T Erde"
-
-    then:
-      formPayment.cardholderName.isSuccess()
 
     when:
       formPayment.cardNumber.click()
@@ -57,11 +40,11 @@ class PaymentDetailsFormValidationSpec extends BaseSpecification {
       formPayment.cardNumber.isError()
 
     when:
-      formPayment.cardNumber = "44443333222211115555"
+      formPayment.cardNumber = "42424242424242425555"
 
     then:
       formPayment.cardNumber.isSuccess()
-      formPayment.cardNumber.value() == "4444333322221111"
+      formPayment.cardNumber.value() == "4242424242424242"
 
     when:
       formPayment.expiryDate.month = 'July'

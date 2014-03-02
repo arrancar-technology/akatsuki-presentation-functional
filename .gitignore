@@ -10,6 +10,7 @@ node_modules
 *.iml
 *.ipr
 *.iws
+src/test/drivers
 
 .DS_Store
 scrapbook.txt
