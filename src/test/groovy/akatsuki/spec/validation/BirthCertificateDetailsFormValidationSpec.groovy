@@ -1,13 +1,13 @@
 package akatsuki.spec.validation
 
-import akatsuki.page.BirthCertificatePage
+import akatsuki.page.CertificateBirthPage
 import akatsuki.spec.BaseSpecification
 
 class BirthCertificateDetailsFormValidationSpec extends BaseSpecification {
 
   def "birth details form has correct validations"() {
     given:
-      toAt BirthCertificatePage
+      toAt CertificateBirthPage
 
     expect: // Check defaults
       formBirth.numberOfCertificateCopies.text() == '1'

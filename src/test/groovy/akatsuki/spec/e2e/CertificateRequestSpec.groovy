@@ -2,7 +2,7 @@ package akatsuki.spec.e2e
 
 import akatsuki.page.OrderSuccessPage
 import akatsuki.page.admin.AdminOrdersListPage
-import akatsuki.page.BirthCertificatePage
+import akatsuki.page.CertificateBirthPage
 import akatsuki.page.HomePage
 import akatsuki.spec.BaseSpecification
 
@@ -28,7 +28,7 @@ class CertificateRequestSpec extends BaseSpecification {
       panelBirth.form.processButton.click()
 
     then:
-      waitFor { at BirthCertificatePage }
+      waitFor { at CertificateBirthPage }
       formAdditional.firstName.value() == 'Lockon'
       formAdditional.lastName.value() == 'Stratos'
       formAdditional.email.value() == 'lockon.stratos@gmail.com'

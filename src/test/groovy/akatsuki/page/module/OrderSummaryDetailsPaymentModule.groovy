@@ -1,6 +1,6 @@
 package akatsuki.page.module
 
-class OrderSummaryPaymentDetailsModule extends FormModule {
+class OrderSummaryDetailsPaymentModule extends FormModule {
 
   static content = {
     cardNumber { $('.cardNumber') }

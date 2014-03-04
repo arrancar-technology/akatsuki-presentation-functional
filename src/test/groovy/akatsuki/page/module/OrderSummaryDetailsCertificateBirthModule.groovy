@@ -1,6 +1,6 @@
 package akatsuki.page.module
 
-class OrderSummaryBirthCertificateDetailsModule extends FormModule {
+class OrderSummaryDetailsCertificateBirthModule extends FormModule {
 
   static content = {
     dateOfBirth { $('.dateOfBirth') }

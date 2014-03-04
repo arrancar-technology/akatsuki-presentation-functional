@@ -10,6 +10,7 @@ enum PathPresentation {
   ADMIN_ORDERS_LIST("$BASE/admin/orders"),
   API_1_STATUS("$BASE/api/1/status"),
   CERTIFICATE_BIRTH("$BASE/certificate/birth"),
+  CERTIFICATE_MARRIAGE("$BASE/certificate/marriage"),
   CERTIFICATE_SUCCESS("$BASE/certificate/success")
 
   String path

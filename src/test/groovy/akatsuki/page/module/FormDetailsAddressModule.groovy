@@ -1,6 +1,7 @@
 package akatsuki.page.module
 
-class FormAddressDetailsModule extends FormModule {
+class FormDetailsAddressModule extends FormModule {
+
   static content = {
     address1 { module InputTextFieldModule, $('#address-1') }
     address2 { module InputTextFieldModule, $('#address-2') }

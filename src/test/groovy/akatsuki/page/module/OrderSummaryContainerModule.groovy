@@ -6,7 +6,7 @@ class OrderSummaryContainerModule extends FormModule {
 
   static content = {
     certificateDetails { module certificateDetailsModule, $('.certificate-details-container') }
-    additionalDetails { module OrderSummaryAdditionalDetailsModule, $('.additional-details-container') }
-    paymentDetails { module OrderSummaryPaymentDetailsModule, $('.payment-details-container') }
+    additionalDetails { module OrderSummaryDetailsAdditionalModule, $('.additional-details-container') }
+    paymentDetails { module OrderSummaryDetailsPaymentModule, $('.payment-details-container') }
   }
 }

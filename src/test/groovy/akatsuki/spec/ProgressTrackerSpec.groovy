@@ -1,13 +1,12 @@
 package akatsuki.spec
 
-import akatsuki.page.BirthCertificatePage
-import akatsuki.spec.BaseSpecification
+import akatsuki.page.CertificateBirthPage
 
 class ProgressTrackerSpec extends BaseSpecification {
 
   def "progress tracker shows correct state with each step"() {
     given:
-      toAt BirthCertificatePage
+      toAt CertificateBirthPage
 
     expect:
       progressTracker.certificateDetails.isTodo()

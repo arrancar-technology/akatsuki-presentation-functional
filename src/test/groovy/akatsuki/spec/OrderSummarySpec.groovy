@@ -1,12 +1,12 @@
 package akatsuki.spec
 
-import akatsuki.page.BirthCertificatePage
+import akatsuki.page.CertificateBirthPage
 
 class OrderSummarySpec extends BaseSpecification {
 
   def "order summary displays correct information"() {
     given:
-      toAt BirthCertificatePage
+      toAt CertificateBirthPage
 
     expect:
       orderSummary.certificateDetails.dateOfBirth.text() == "Date of Birth\n: -- / -- / --"
@@ -81,6 +81,41 @@ class OrderSummarySpec extends BaseSpecification {
   }
 
   def "order summary displays correct price information"() {
-    // TODO: [DK] Implement this test...
+    given:
+      toAt CertificateBirthPage
+
+    expect:
+      orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
+      orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
+      orderSummary.certificateDetails.total.text() == "Total\n: £25"
+
+    when:
+      formBirth.numberOfCertificateCopies = '1' // 2 copies
+
+    then:
+      orderSummary.certificateDetails.total.text() == "Total\n: £50"
+
+    when:
+      formBirth.numberOfCertificateCopies = '2' // 3 copies
+      formBirth.numberOfApostilledCopies = '1'  // 1 apostilled
+
+    then:
+      orderSummary.certificateDetails.total.text() == "Total\n: £150"
+
+    when:
+      formBirth.serviceType = '1'                 // Rapid
+      formBirth.numberOfCertificateCopies = '1'   // 2 copies
+      formBirth.numberOfApostilledCopies = '1'    // 1 apostilled
+
+    then:
+      orderSummary.certificateDetails.total.text() == "Total\n: £155"
+
+    when:
+      formBirth.serviceType = '2'                 // Prime
+      formBirth.numberOfCertificateCopies = '1'   // 2 copies
+      formBirth.numberOfApostilledCopies = '2'    // 2 apostilled
+
+    then:
+      orderSummary.certificateDetails.total.text() == "Total\n: £270"
   }
 }

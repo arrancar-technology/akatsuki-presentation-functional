@@ -1,8 +1,6 @@
 package akatsuki.page.module
 
-import geb.Module
-
-class FormApplyModule extends Module {
+class FormApplyModule extends FormModule {
 
   static content = {
     firstName { module InputTextFieldModule, $('#first-name') }

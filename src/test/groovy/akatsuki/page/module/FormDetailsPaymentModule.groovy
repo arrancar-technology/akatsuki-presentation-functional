@@ -1,6 +1,7 @@
 package akatsuki.page.module
 
-class FormPaymentDetailsModule extends FormModule {
+class FormDetailsPaymentModule extends FormModule {
+
   static content = {
     cardNumber { module InputTextFieldModule, $('#card-number') }
     expiryDate { module InputDateMonthYearModule, $('.expiry-date') }

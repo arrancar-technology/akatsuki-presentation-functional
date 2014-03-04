@@ -1,6 +1,7 @@
 package akatsuki.page.module
 
-class FormBirthDetailsModule extends FormModule {
+class FormDetailsBirthModule extends FormDetailsBaseModule {
+
   static content = {
     dateOfBirth { module InputDateModule, $('.date-of-birth-container') }
     placeOfBirth { module InputTextFieldModule, $('#place-of-birth') }
@@ -10,9 +11,6 @@ class FormBirthDetailsModule extends FormModule {
     motherFirstName { module InputTextFieldModule, $('#mother-first-name') }
     fatherLastName { module InputTextFieldModule, $('#father-last-name') }
     fatherFirstName { module InputTextFieldModule, $('#father-first-name') }
-    serviceType { module InputDropdownModule, $('#service-type') }
-    numberOfCertificateCopies { module InputDropdownModule, $('#number-of-copies') }
-    numberOfApostilledCopies { module InputDropdownModule, $('#number-of-apostilles') }
 
     stepNavigation { module StepNavigationModule, $('.step-navigation')}
   }

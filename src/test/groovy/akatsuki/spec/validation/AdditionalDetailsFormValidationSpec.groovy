@@ -1,13 +1,13 @@
 package akatsuki.spec.validation
 
-import akatsuki.page.BirthCertificatePage
+import akatsuki.page.CertificateBirthPage
 import akatsuki.spec.BaseSpecification
 
 class AdditionalDetailsFormValidationSpec extends BaseSpecification {
 
   def "additional details form has correct validations"() {
     given:
-      toAt BirthCertificatePage
+      toAt CertificateBirthPage
 
     and:
       populateBirthDetails()
