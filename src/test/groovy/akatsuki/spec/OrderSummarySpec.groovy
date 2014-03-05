@@ -1,10 +1,11 @@
 package akatsuki.spec
 
 import akatsuki.page.CertificateBirthPage
+import akatsuki.page.CertificateMarriagePage
 
 class OrderSummarySpec extends BaseSpecification {
 
-  def "order summary displays correct information"() {
+  def "order summary displays correct information for birth certificate, additional and payment details"() {
     given:
       toAt CertificateBirthPage
 
@@ -23,20 +24,8 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.total.text() == "Total\n: £25"
 
     and:
-      orderSummary.additionalDetails.firstName.text() == "First Name\n: --"
-      orderSummary.additionalDetails.lastName.text() == "Last Name\n: --"
-      orderSummary.additionalDetails.email.text() == "Email Address\n: --"
-      orderSummary.additionalDetails.phone.text() == "Phone\n: --"
-      orderSummary.additionalDetails.address1.text() == "Address 1\n: --"
-      orderSummary.additionalDetails.address2.text() == "Address 2\n: --"
-      orderSummary.additionalDetails.city.text() == "City\n: --"
-      orderSummary.additionalDetails.postcode.text() == "Postcode\n: --"
-      orderSummary.additionalDetails.country.text() == "Country\n: United Kingdom"
-
-    and:
-      orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: --"
-      orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: -- / --"
-      orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: --"
+      validateDefaultOrderSummaryForAdditionalDetails()
+      validateDefaultOrderSummaryForPaymentDetails()
 
     when:
       populateBirthDetails()
@@ -60,24 +49,64 @@ class OrderSummarySpec extends BaseSpecification {
       populateAdditionalDetails()
 
     then:
-      orderSummary.additionalDetails.firstName.text() == "First Name\n: Lockon"
-      orderSummary.additionalDetails.lastName.text() == "Last Name\n: Stratos"
-      orderSummary.additionalDetails.email.text() == "Email Address\n: lockon.stratos@gmail.com"
-      orderSummary.additionalDetails.address1.text() == "Address 1\n: Station Parade"
-      orderSummary.additionalDetails.address2.text() == "Address 2\n: Kobe Road"
-      orderSummary.additionalDetails.city.text() == "City\n: Tokyo"
-      orderSummary.additionalDetails.postcode.text() == "Postcode\n: W8 9DF"
-      orderSummary.additionalDetails.country.text() == "Country\n: Japan"
-      orderSummary.additionalDetails.phone.text() == "Phone\n: 07157158989"
+      validateOrderSummaryForAdditionalDetails()
 
     when:
       formAdditional.stepNavigation.nextButton.click()
       populatePaymentDetails()
 
     then:
-      orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4242424242424242"
-      orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: July / 2020"
-      orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: 123"
+      validateOrderSummaryForPaymentDetails()
+  }
+
+  def "order summary displays correct information for marriage certificate"() {
+    given:
+      to CertificateMarriagePage
+
+    expect:
+      orderSummary.certificateDetails.dateOfMarriage.text() == "Date of Marriage\n: -- / -- / --"
+      orderSummary.certificateDetails.placeOfMarriage.text() == "Place of Marriage\n: --"
+      orderSummary.certificateDetails.womanLastName.text() == "Woman Last Name\n: --"
+      orderSummary.certificateDetails.womanFirstName.text() == "Woman First Name\n: --"
+      orderSummary.certificateDetails.manLastName.text() == "Man Last Name\n: --"
+      orderSummary.certificateDetails.manFirstName.text() == "Man First Name\n: --"
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
+      orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
+      orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
+      orderSummary.certificateDetails.total.text() == "Total\n: £25"
+
+    and:
+      validateDefaultOrderSummaryForAdditionalDetails()
+      validateDefaultOrderSummaryForPaymentDetails()
+
+    when:
+      populateMarriageDetails()
+
+    then:
+      orderSummary.certificateDetails.dateOfMarriage.text() == "Date of Marriage\n: 2 / July / 1980"
+      orderSummary.certificateDetails.placeOfMarriage.text() == "Place of Marriage\n: London"
+      orderSummary.certificateDetails.womanLastName.text() == "Woman Last Name\n: Ismail"
+      orderSummary.certificateDetails.womanFirstName.text() == "Woman First Name\n: Marina"
+      orderSummary.certificateDetails.manLastName.text() == "Man Last Name\n: Seiei"
+      orderSummary.certificateDetails.manFirstName.text() == "Man First Name\n: Setsuna F."
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
+      orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
+      orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
+      orderSummary.certificateDetails.total.text() == "Total\n: £255"
+
+    when:
+      formMarriage.stepNavigation.nextButton.click()
+      populateAdditionalDetails()
+
+    then:
+      validateOrderSummaryForAdditionalDetails()
+
+    when:
+      formAdditional.stepNavigation.nextButton.click()
+      populatePaymentDetails()
+
+    then:
+      validateOrderSummaryForPaymentDetails()
   }
 
   def "order summary displays correct price information"() {
@@ -117,5 +146,49 @@ class OrderSummarySpec extends BaseSpecification {
 
     then:
       orderSummary.certificateDetails.total.text() == "Total\n: £270"
+  }
+
+  def validateDefaultOrderSummaryForAdditionalDetails() {
+    assert orderSummary.additionalDetails.firstName.text() == "First Name\n: --"
+    assert orderSummary.additionalDetails.lastName.text() == "Last Name\n: --"
+    assert orderSummary.additionalDetails.email.text() == "Email Address\n: --"
+    assert orderSummary.additionalDetails.phone.text() == "Phone\n: --"
+    assert orderSummary.additionalDetails.address1.text() == "Address 1\n: --"
+    assert orderSummary.additionalDetails.address2.text() == "Address 2\n: --"
+    assert orderSummary.additionalDetails.city.text() == "City\n: --"
+    assert orderSummary.additionalDetails.postcode.text() == "Postcode\n: --"
+    assert orderSummary.additionalDetails.country.text() == "Country\n: United Kingdom"
+
+    return true
+  }
+
+  def validateDefaultOrderSummaryForPaymentDetails() {
+    assert orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: --"
+    assert orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: -- / --"
+    assert orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: --"
+
+    return true
+  }
+
+  def validateOrderSummaryForAdditionalDetails() {
+    assert orderSummary.additionalDetails.firstName.text() == "First Name\n: Lockon"
+    assert orderSummary.additionalDetails.lastName.text() == "Last Name\n: Stratos"
+    assert orderSummary.additionalDetails.email.text() == "Email Address\n: lockon.stratos@gmail.com"
+    assert orderSummary.additionalDetails.address1.text() == "Address 1\n: Station Parade"
+    assert orderSummary.additionalDetails.address2.text() == "Address 2\n: Kobe Road"
+    assert orderSummary.additionalDetails.city.text() == "City\n: Tokyo"
+    assert orderSummary.additionalDetails.postcode.text() == "Postcode\n: W8 9DF"
+    assert orderSummary.additionalDetails.country.text() == "Country\n: Japan"
+    assert orderSummary.additionalDetails.phone.text() == "Phone\n: 07157158989"
+
+    return true
+  }
+
+  def validateOrderSummaryForPaymentDetails() {
+    assert orderSummary.paymentDetails.cardNumber.text() == "Card Number\n: 4242424242424242"
+    assert orderSummary.paymentDetails.expiryDate.text() == "Expiry Date\n: July / 2020"
+    assert orderSummary.paymentDetails.cardVerificationNumber.text() == "Card Verification (CVC)\n: 123"
+
+    return true
   }
 }

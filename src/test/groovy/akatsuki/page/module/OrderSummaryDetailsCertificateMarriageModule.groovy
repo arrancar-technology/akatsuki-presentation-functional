@@ -1,6 +1,6 @@
 package akatsuki.page.module
 
-class OrderSummaryDetailsCertificateMarriageModule extends FormModule {
+class OrderSummaryDetailsCertificateMarriageModule extends OrderSummaryDetailsCertificateBaseModule {
 
   static content = {
     dateOfMarriage { $('.dateOfMarriage') }
@@ -9,9 +9,5 @@ class OrderSummaryDetailsCertificateMarriageModule extends FormModule {
     womanFirstName { $('.womanFirstName') }
     manLastName { $('.manLastName') }
     manFirstName { $('.manFirstName') }
-    serviceType { $('.serviceType') }
-    numberOfCopies { $('.numberOfCopies') }
-    apostilledCopies { $('.apostilledCopies') }
-    total { $('.total') }
   }
 }

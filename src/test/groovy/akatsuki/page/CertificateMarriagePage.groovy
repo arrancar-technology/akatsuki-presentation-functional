@@ -19,16 +19,14 @@ class CertificateMarriagePage extends CertificateBasePage {
   def populateMarriageDetails() {
     formMarriage.dateOfMarriage.day = '1' // 0 indexed
     formMarriage.dateOfMarriage.month = 'July'
-    formMarriage.dateOfMarriage.year = '1981'
+    formMarriage.dateOfMarriage.year = '1980'
     formMarriage.placeOfMarriage = 'London'
-    formMarriage.lastNameAtMarriage = 'Erde'
-    formMarriage.firstNameAtMarriage = 'Tieria'
-    formMarriage.motherMaidenName = 'Regetta'
-    formMarriage.motherFirstName = 'Regene'
-    formMarriage.fatherLastName = 'Almark'
-    formMarriage.fatherFirstName = 'Ribbons'
-    formMarriage.serviceType = '1'
-    formMarriage.numberOfCertificateCopies = '1'
+    formMarriage.womanLastName = 'Ismail'
+    formMarriage.womanFirstName = 'Marina'
+    formMarriage.manLastName = 'Seiei'
+    formMarriage.manFirstName = 'Setsuna F.'
+    formMarriage.serviceType = '2'
+    formMarriage.numberOfCertificateCopies = '2'
     formMarriage.numberOfApostilledCopies = '1'
   }
 }

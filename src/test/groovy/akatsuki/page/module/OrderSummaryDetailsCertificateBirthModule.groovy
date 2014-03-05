@@ -1,6 +1,6 @@
 package akatsuki.page.module
 
-class OrderSummaryDetailsCertificateBirthModule extends FormModule {
+class OrderSummaryDetailsCertificateBirthModule extends OrderSummaryDetailsCertificateBaseModule {
 
   static content = {
     dateOfBirth { $('.dateOfBirth') }
@@ -11,9 +11,5 @@ class OrderSummaryDetailsCertificateBirthModule extends FormModule {
     motherFirstName { $('.motherFirstName') }
     fatherLastName { $('.fatherLastName') }
     fatherFirstName { $('.fatherFirstName') }
-    serviceType { $('.serviceType') }
-    numberOfCopies { $('.numberOfCopies') }
-    apostilledCopies { $('.apostilledCopies') }
-    total { $('.total') }
   }
 }
