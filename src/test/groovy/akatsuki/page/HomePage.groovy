@@ -10,5 +10,7 @@ class HomePage extends BasePage {
 
   static content = {
     panelBirth { module PanelBirthModule, $('#birth-section') }
+    panelMarriage { module PanelBirthModule, $('#marriage-section') }
+    panelDeath { module PanelBirthModule, $('#death-section') }
   }
 }
