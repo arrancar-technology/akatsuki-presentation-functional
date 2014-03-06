@@ -1,6 +1,7 @@
 package akatsuki.spec.e2e
 
 import akatsuki.page.CertificateBirthPage
+import akatsuki.page.CertificateDeathPage
 import akatsuki.page.CertificateMarriagePage
 import akatsuki.page.HomePage
 import akatsuki.page.OrderSuccessPage
@@ -67,5 +68,6 @@ class CertificateRequestSpec extends BaseSpecification {
       certificateType | certificatePage
       'birth'         | CertificateBirthPage
       'marriage'      | CertificateMarriagePage
+      'death'         | CertificateDeathPage
   }
 }
