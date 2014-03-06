@@ -1,6 +1,7 @@
 package akatsuki.spec
 
 import akatsuki.page.CertificateBirthPage
+import akatsuki.page.CertificateDeathPage
 import akatsuki.page.CertificateMarriagePage
 
 class OrderSummarySpec extends BaseSpecification {
@@ -59,7 +60,7 @@ class OrderSummarySpec extends BaseSpecification {
       validateOrderSummaryForPaymentDetails()
   }
 
-  def "order summary displays correct information for marriage certificate"() {
+  def "order summary displays correct information for marriage certificate, additional and payment details"() {
     given:
       to CertificateMarriagePage
 
@@ -109,6 +110,52 @@ class OrderSummarySpec extends BaseSpecification {
       validateOrderSummaryForPaymentDetails()
   }
 
+  def "order summary displays correct information for death certificate, additional and payment details"() {
+    given:
+    toAt CertificateDeathPage
+
+    expect:
+    orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: -- / -- / --"
+    orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: --"
+    orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: --"
+    orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: --"
+    orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
+    orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
+    orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
+    orderSummary.certificateDetails.total.text() == "Total\n: £25"
+
+    and:
+    validateDefaultOrderSummaryForAdditionalDetails()
+    validateDefaultOrderSummaryForPaymentDetails()
+
+    when:
+    populateDeathDetails()
+
+    then:
+    orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: 11 / November / 2083"
+    orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: London"
+    orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: Haptism"
+    orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: Allelujah"
+    orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
+    orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
+    orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
+    orderSummary.certificateDetails.total.text() == "Total\n: £255"
+
+    when:
+    formDeath.stepNavigation.nextButton.click()
+    populateAdditionalDetails()
+
+    then:
+    validateOrderSummaryForAdditionalDetails()
+
+    when:
+    formAdditional.stepNavigation.nextButton.click()
+    populatePaymentDetails()
+
+    then:
+    validateOrderSummaryForPaymentDetails()
+  }
+
   def "order summary displays correct price information"() {
     given:
       toAt CertificateBirthPage
@@ -147,7 +194,6 @@ class OrderSummarySpec extends BaseSpecification {
     then:
       orderSummary.certificateDetails.total.text() == "Total\n: £270"
   }
-
   def validateDefaultOrderSummaryForAdditionalDetails() {
     assert orderSummary.additionalDetails.firstName.text() == "First Name\n: --"
     assert orderSummary.additionalDetails.lastName.text() == "Last Name\n: --"
