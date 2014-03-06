@@ -3,7 +3,7 @@ package akatsuki.spec.validation
 import akatsuki.page.CertificateMarriagePage
 import akatsuki.spec.BaseSpecification
 
-class MarriageCertificateDetailsFormValidationSpec extends BaseSpecification {
+class CertificateDetailsMarriageFormValidationSpec extends BaseSpecification {
 
   def "marriage details form has correct validations"() {
     given:

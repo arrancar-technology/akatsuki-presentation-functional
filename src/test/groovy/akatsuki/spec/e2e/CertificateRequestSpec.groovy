@@ -8,7 +8,6 @@ import akatsuki.page.admin.AdminOrdersListPage
 import akatsuki.spec.BaseSpecification
 import spock.lang.Unroll
 
-@Unroll
 class CertificateRequestSpec extends BaseSpecification {
 
   def setupSpec() {
@@ -19,6 +18,7 @@ class CertificateRequestSpec extends BaseSpecification {
     logout()
   }
 
+  @Unroll
   def "#certificateType certificate request is saved correctly"() {
     given:
       toAt HomePage

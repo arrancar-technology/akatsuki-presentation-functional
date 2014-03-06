@@ -11,6 +11,7 @@ enum PathPresentation {
   API_1_STATUS("$BASE/api/1/status"),
   CERTIFICATE_BIRTH("$BASE/certificate/birth"),
   CERTIFICATE_MARRIAGE("$BASE/certificate/marriage"),
+  CERTIFICATE_DEATH("$BASE/certificate/death"),
   CERTIFICATE_SUCCESS("$BASE/certificate/success")
 
   String path
