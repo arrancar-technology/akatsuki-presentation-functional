@@ -22,6 +22,7 @@ class CertificateDetailsMarriageFormValidationSpec extends BaseSpecification {
       formMarriage.womanFirstName.isError()
       formMarriage.manLastName.isError()
       formMarriage.manFirstName.isError()
+      formMarriage.eventCountry.isSuccess()
       formMarriage.serviceType.isSuccess()
       formMarriage.numberOfCertificateCopies.isSuccess()
       formMarriage.numberOfApostilledCopies.isError()

@@ -67,7 +67,7 @@ class CertificateRequestSpec extends BaseSpecification {
     where:
       certificateType | certificatePage
       'birth'         | CertificateBirthPage
-      'marriage'      | CertificateMarriagePage
-      'death'         | CertificateDeathPage
+//      'marriage'      | CertificateMarriagePage
+//      'death'         | CertificateDeathPage
   }
 }

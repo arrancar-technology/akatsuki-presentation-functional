@@ -20,6 +20,7 @@ class CertificateDetailsDeathFormValidationSpec extends BaseSpecification {
       formDeath.placeOfDeath.isError()
       formDeath.lastNameAtDeath.isError()
       formDeath.firstNameAtDeath.isError()
+      formDeath.eventCountry.isSuccess()
       formDeath.serviceType.isSuccess()
       formDeath.numberOfCertificateCopies.isSuccess()
       formDeath.numberOfApostilledCopies.isError()

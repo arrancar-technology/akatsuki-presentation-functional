@@ -28,6 +28,7 @@ class CertificateBirthPage extends CertificateBasePage {
     formBirth.motherFirstName = 'Regene'
     formBirth.fatherLastName = 'Almark'
     formBirth.fatherFirstName = 'Ribbons'
+    formBirth.eventCountry = 'Republic of Ireland'
     formBirth.serviceType = '1'
     formBirth.numberOfCertificateCopies = '1'
     formBirth.numberOfApostilledCopies = '1'

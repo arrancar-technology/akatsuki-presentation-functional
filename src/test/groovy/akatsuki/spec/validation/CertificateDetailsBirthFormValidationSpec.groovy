@@ -24,6 +24,7 @@ class CertificateDetailsBirthFormValidationSpec extends BaseSpecification {
       formBirth.placeOfBirth.isError()
       formBirth.lastNameAtBirth.isError()
       formBirth.firstNameAtBirth.isError()
+      formBirth.eventCountry.isSuccess()
       formBirth.serviceType.isSuccess()
       formBirth.numberOfCertificateCopies.isSuccess()
       formBirth.numberOfApostilledCopies.isError()

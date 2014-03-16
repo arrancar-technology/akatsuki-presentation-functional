@@ -19,6 +19,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: --"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: --"
       orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: --"
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: England and Wales"
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
@@ -40,6 +41,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.motherFirstName.text() == "Mother's First Name\n: Regene"
       orderSummary.certificateDetails.fatherLastName.text() == "Father's Last Name\n: Almark"
       orderSummary.certificateDetails.fatherFirstName.text() == "Father's First Name\n: Ribbons"
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: Republic of Ireland"
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Rapid"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 2"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
@@ -71,6 +73,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.womanFirstName.text() == "Woman First Name\n: --"
       orderSummary.certificateDetails.manLastName.text() == "Man Last Name\n: --"
       orderSummary.certificateDetails.manFirstName.text() == "Man First Name\n: --"
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: England and Wales"
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
@@ -90,6 +93,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.womanFirstName.text() == "Woman First Name\n: Marina"
       orderSummary.certificateDetails.manLastName.text() == "Man Last Name\n: Seiei"
       orderSummary.certificateDetails.manFirstName.text() == "Man First Name\n: Setsuna F."
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: North Ireland"
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
@@ -112,48 +116,50 @@ class OrderSummarySpec extends BaseSpecification {
 
   def "order summary displays correct information for death certificate, additional and payment details"() {
     given:
-    toAt CertificateDeathPage
+      toAt CertificateDeathPage
 
     expect:
-    orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: -- / -- / --"
-    orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: --"
-    orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: --"
-    orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: --"
-    orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
-    orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
-    orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
-    orderSummary.certificateDetails.total.text() == "Total\n: £25"
+      orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: -- / -- / --"
+      orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: --"
+      orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: --"
+      orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: --"
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: England and Wales"
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Standard"
+      orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 1"
+      orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: --"
+      orderSummary.certificateDetails.total.text() == "Total\n: £25"
 
     and:
-    validateDefaultOrderSummaryForAdditionalDetails()
-    validateDefaultOrderSummaryForPaymentDetails()
+      validateDefaultOrderSummaryForAdditionalDetails()
+      validateDefaultOrderSummaryForPaymentDetails()
 
     when:
-    populateDeathDetails()
+      populateDeathDetails()
 
     then:
-    orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: 11 / November / 2083"
-    orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: London"
-    orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: Haptism"
-    orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: Allelujah"
-    orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
-    orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
-    orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
-    orderSummary.certificateDetails.total.text() == "Total\n: £255"
+      orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: 11 / November / 2083"
+      orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: London"
+      orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: Haptism"
+      orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: Allelujah"
+      orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: Scotland"
+      orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
+      orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
+      orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
+      orderSummary.certificateDetails.total.text() == "Total\n: £255"
 
     when:
-    formDeath.stepNavigation.nextButton.click()
-    populateAdditionalDetails()
+      formDeath.stepNavigation.nextButton.click()
+      populateAdditionalDetails()
 
     then:
-    validateOrderSummaryForAdditionalDetails()
+      validateOrderSummaryForAdditionalDetails()
 
     when:
-    formAdditional.stepNavigation.nextButton.click()
-    populatePaymentDetails()
+      formAdditional.stepNavigation.nextButton.click()
+      populatePaymentDetails()
 
     then:
-    validateOrderSummaryForPaymentDetails()
+      validateOrderSummaryForPaymentDetails()
   }
 
   def "order summary displays correct price information"() {
