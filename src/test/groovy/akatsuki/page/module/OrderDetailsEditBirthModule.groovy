@@ -22,6 +22,7 @@ class OrderDetailsEditBirthModule extends OrderDetailsEditBaseModule {
     assert motherFirstName.text() == "Regene"
     assert fatherLastName.text() == "Almark"
     assert fatherFirstName.text() == "Ribbons"
+
     assert eventCountry.text() == 'Republic of Ireland'
     assert serviceType.text() == 'rapid'
     assert numberOfCertificateCopies.text() == '2'

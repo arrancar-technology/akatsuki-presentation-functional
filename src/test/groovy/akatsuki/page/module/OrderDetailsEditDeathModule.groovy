@@ -3,29 +3,22 @@ package akatsuki.page.module
 class OrderDetailsEditDeathModule extends OrderDetailsEditBaseModule {
 
   static content = {
-    dateOfBirth { $('.dateOfBirth') }
-    placeOfBirth { $('.placeOfBirth') }
-    lastNameAtBirth { $('.lastNameAtBirth') }
-    firstNameAtBirth { $('.firstNameAtBirth') }
-    motherMaidenName { $('.motherMaidenName') }
-    motherFirstName { $('.motherFirstName') }
-    fatherLastName { $('.fatherLastName') }
-    fatherFirstName { $('.fatherFirstName') }
+    dateOfDeath { module InputDateModule, $('.date-of-death-container') }
+    placeOfDeath { module InputTextFieldModule, $('#place-of-death') }
+    lastNameAtDeath { module InputTextFieldModule, $('#last-name-at-death') }
+    firstNameAtDeath { module InputTextFieldModule, $('#first-name-at-death') }
   }
 
   def validateCertificateDetails() {
-    waitFor { dateOfBirth.text() == 'Date of Birth\n2 / \n7 / \n1981' }
-    assert placeOfBirth.text() == 'Place of Birth\nLondon'
-    assert lastNameAtBirth.text() == 'Last Name at Birth\nErde'
-    assert firstNameAtBirth.text() == 'First Name at Birth\nTieria'
-    assert motherMaidenName.text() == "Mother's Maiden Name\nRegetta"
-    assert motherFirstName.text() == "Mother's First Name\nRegene"
-    assert fatherLastName.text() == "Father's Last Name\nAlmark"
-    assert fatherFirstName.text() == "Father's First Name\nRibbons"
-    assert eventCountry.text() == 'Country of Event\nRepublic of Ireland'
-    assert serviceType.text() == 'Service Type\nrapid'
-    assert numberOfCopies.text() == 'Number of Copies\n2'
-    assert apostilledCopies.text() == 'Apostilled Copies\n--'
+    waitFor { dateOfDeath.text() == '11 / \n11 / \n2083' }
+    assert placeOfDeath.text() == 'London'
+    assert lastNameAtDeath.text() == 'Haptism'
+    assert firstNameAtDeath.text() == 'Allelujah'
+
+    assert eventCountry.text() == 'Scotland'
+    assert serviceType.text() == 'prime'
+    assert numberOfCertificateCopies.text() == '3'
+    assert numberOfApostilledCopies.text() == '1'
 
     return true
   }

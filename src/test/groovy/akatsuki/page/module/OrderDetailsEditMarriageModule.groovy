@@ -18,6 +18,7 @@ class OrderDetailsEditMarriageModule extends OrderDetailsEditBaseModule {
     assert womanFirstName.text() == 'Marina'
     assert manLastName.text() == "Seiei"
     assert manFirstName.text() == "Setsuna F."
+
     assert eventCountry.text() == 'North Ireland'
     assert serviceType.text() == 'prime'
     assert numberOfCertificateCopies.text() == '3'

@@ -75,6 +75,8 @@ class CertificateRequestSpec extends BaseSpecification {
       certificateType | certificatePage
       'birth'         | CertificateBirthPage
       'marriage'      | CertificateMarriagePage
-//      'death'         | CertificateDeathPage
+      'death'         | CertificateDeathPage
   }
+
+  // TODO: [DK] write test for editing order on admin console
 }
