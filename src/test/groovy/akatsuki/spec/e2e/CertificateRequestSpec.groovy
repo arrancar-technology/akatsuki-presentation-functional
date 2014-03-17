@@ -64,10 +64,27 @@ class CertificateRequestSpec extends BaseSpecification {
       orders(certificateType).rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details']
       waitFor { orders(certificateType).rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
 
+    when:
+      showOrderDetails(certificateType, 1)
+
+    then:
+      getOrderDetailsModuleFor(certificateType).validateCertificateDetails()
+
+    and:
+      orderDetailsAdditionalInfo.lastName.text() == 'Last Name\nStratos'
+      orderDetailsAdditionalInfo.firstName.text() == 'First Name\nLockon'
+      orderDetailsAdditionalInfo.email.text() == 'Email Address\nlockon.stratos@gmail.com'
+      orderDetailsAdditionalInfo.address1.text() == 'Address 1\nStation Parade'
+      orderDetailsAdditionalInfo.address2.text() == 'Address 2\nKobe Road'
+      orderDetailsAdditionalInfo.city.text() == 'City\nTokyo'
+      orderDetailsAdditionalInfo.postcode.text() == 'Postcode\nW8 9DF'
+      orderDetailsAdditionalInfo.country.text() == 'Country\nJP'
+      orderDetailsAdditionalInfo.phone.text() == 'Phone\n07157158989'
+
     where:
       certificateType | certificatePage
       'birth'         | CertificateBirthPage
-      'marriage'      | CertificateMarriagePage
-      'death'         | CertificateDeathPage
+//      'marriage'      | CertificateMarriagePage
+//      'death'         | CertificateDeathPage
   }
 }
