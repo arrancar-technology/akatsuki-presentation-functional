@@ -17,8 +17,6 @@ class AdminOrdersListPage extends BasePage {
     orderDetailsBirth { module OrderDetailsEditBirthModule, $('.modal.birth') }
     orderDetailsMarriage { module OrderDetailsEditMarriageModule, $('.modal.marriage') }
     orderDetailsDeath { module OrderDetailsEditDeathModule, $('.modal.death') }
-
-    orderDetailsAdditionalInfo { module OrderDetailsEditAdditionalInfoModule }
   }
 
   def showOrderDetails(orderType, rowNumber) {

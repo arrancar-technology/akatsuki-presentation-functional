@@ -1,16 +1,17 @@
 package akatsuki.page.module
 
-class OrderDetailsEditAdditionalInfoModule extends OrderDetailsEditBaseModule {
+class OrderDetailsEditAdditionalInfoModule extends FormModule {
 
   static content = {
-    firstName { $('.firstName') }
-    lastName { $('.lastName') }
-    email { $('.email') }
-    phone { $('.phone') }
-    address1 { $('.address-1') }
-    address2 { $('.address-2') }
-    city { $('.city') }
-    postcode { $('.postcode') }
-    country { $('.country') }
+    firstName { module InputTextFieldModule, $('#first-name') }
+    lastName { module InputTextFieldModule, $('#last-name') }
+    email { module InputTextFieldModule, $('#email') }
+
+    address1 { module InputTextFieldModule, $('#address-1') }
+    address2 { module InputTextFieldModule, $('#address-2') }
+    city { module InputTextFieldModule, $('#city') }
+    postcode { module InputTextFieldModule, $('#postcode') }
+    country { module InputTextFieldModule, $('#country') }
+    phone { module InputTextFieldModule, $('#phone') }
   }
 }

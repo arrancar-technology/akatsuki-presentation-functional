@@ -69,22 +69,12 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       getOrderDetailsModuleFor(certificateType).validateCertificateDetails()
-
-    and:
-      orderDetailsAdditionalInfo.lastName.text() == 'Last Name\nStratos'
-      orderDetailsAdditionalInfo.firstName.text() == 'First Name\nLockon'
-      orderDetailsAdditionalInfo.email.text() == 'Email Address\nlockon.stratos@gmail.com'
-      orderDetailsAdditionalInfo.address1.text() == 'Address 1\nStation Parade'
-      orderDetailsAdditionalInfo.address2.text() == 'Address 2\nKobe Road'
-      orderDetailsAdditionalInfo.city.text() == 'City\nTokyo'
-      orderDetailsAdditionalInfo.postcode.text() == 'Postcode\nW8 9DF'
-      orderDetailsAdditionalInfo.country.text() == 'Country\nJP'
-      orderDetailsAdditionalInfo.phone.text() == 'Phone\n07157158989'
+      getOrderDetailsModuleFor(certificateType).validateAdditionalInfoDetails()
 
     where:
       certificateType | certificatePage
       'birth'         | CertificateBirthPage
-//      'marriage'      | CertificateMarriagePage
+      'marriage'      | CertificateMarriagePage
 //      'death'         | CertificateDeathPage
   }
 }
