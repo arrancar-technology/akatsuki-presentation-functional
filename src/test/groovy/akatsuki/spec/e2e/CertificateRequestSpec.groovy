@@ -68,8 +68,8 @@ class CertificateRequestSpec extends BaseSpecification {
       showOrderDetails(certificateType, 1)
 
     then:
-      getOrderDetailsModuleFor(certificateType).validateCertificateDetails()
-      getOrderDetailsModuleFor(certificateType).validateAdditionalInfoDetails()
+      page."orderDetails${certificateType.capitalize()}".validateCertificateDetails()
+      page."orderDetails${certificateType.capitalize()}".validateAdditionalInfoDetails()
 
     where:
       certificateType | certificatePage
