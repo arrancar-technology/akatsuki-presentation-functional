@@ -29,10 +29,18 @@ abstract class CertificateBasePage extends BasePage {
     formAdditional.address.phone = '07157158989'
   }
 
-  def populatePaymentDetails() {
-    formPayment.cardNumber = "4242424242424242"
-    formPayment.expiryDate.month = 'July'
-    formPayment.expiryDate.year = '2020'
-    formPayment.cardVerificationNumber = '123'
+  def populatePaymentDetails(values = [:]) {
+    def valuesDefault = [
+      cardNumber: "4242424242424242",
+      month: 'July',
+      year: '2020',
+      cardVerificationNumber: '123'
+    ]
+    valuesDefault.putAll(values)
+
+    formPayment.cardNumber = valuesDefault.cardNumber
+    formPayment.expiryDate.month = valuesDefault.month
+    formPayment.expiryDate.year = valuesDefault.year
+    formPayment.cardVerificationNumber = valuesDefault.cardVerificationNumber
   }
 }
