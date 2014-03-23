@@ -46,6 +46,34 @@ class CertificateChargingSpec extends BaseSpecification {
       // [: ''] | '' // missing ???
   }
 
-  // TODO: [DK] implement this test
-  def "payment successes after a failed one"() {}
+  def "payment successes after a failed one"() {
+    given:
+      to CertificateBirthPage
+
+    when:
+      populateBirthDetails()
+      formBirth.stepNavigation.nextButton.click()
+
+    and:
+      populateAdditionalDetails()
+      formAdditional.stepNavigation.nextButton.click()
+
+    and:
+      populatePaymentDetails([cardNumber: '4242424242424241'])
+      formPayment.stepNavigation.paymentButton.click()
+
+    then:
+      formPayment.stepNavigation.paymentButton.disabled
+
+    and:
+      waitFor { formPayment.error.text() == 'Sorry, card number is incorrect' }
+      !formPayment.stepNavigation.paymentButton.disabled
+
+    when:
+      populatePaymentDetails()
+      formPayment.stepNavigation.paymentButton.click()
+
+    then:
+      waitFor { at OrderSuccessPage }
+  }
 }
