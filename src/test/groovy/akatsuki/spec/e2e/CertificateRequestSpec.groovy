@@ -61,7 +61,7 @@ class CertificateRequestSpec extends BaseSpecification {
       toAt AdminOrdersListPage
 
     then:
-      orders(certificateType).rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details']
+      waitFor { orders(certificateType).rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
       waitFor { orders(certificateType).rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
 
     when:
