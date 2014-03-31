@@ -11,7 +11,7 @@ class CertificateBirthPage extends CertificateBasePage {
   }
 
   static url = PathPresentation.CERTIFICATE_BIRTH
-  static at = { title == "UK Official Certificate - Birth Certificate" }
+  static at = { title == "Simply Certificate - Birth Certificate" }
 
   static content = {
     formBirth { module FormDetailsBirthModule, $('.step.first') }

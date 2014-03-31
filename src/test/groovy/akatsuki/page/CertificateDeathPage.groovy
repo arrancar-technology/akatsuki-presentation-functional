@@ -11,7 +11,7 @@ class CertificateDeathPage extends CertificateBasePage {
   }
 
   static url = PathPresentation.CERTIFICATE_DEATH
-  static at = { title == "UK Official Certificate - Death Certificate" }
+  static at = { title == "Simply Certificate - Death Certificate" }
 
   static content = {
     formDeath { module FormDetailsDeathModule, $('.step.first') }

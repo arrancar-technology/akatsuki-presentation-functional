@@ -10,7 +10,7 @@ class CertificateMarriagePage extends CertificateBasePage {
   }
 
   static url = PathPresentation.CERTIFICATE_MARRIAGE
-  static at = { title == "UK Official Certificate - Marriage Certificate" }
+  static at = { title == "Simply Certificate - Marriage Certificate" }
 
   static content = {
     formMarriage { module FormDetailsMarriageModule, $('.step.first') }
