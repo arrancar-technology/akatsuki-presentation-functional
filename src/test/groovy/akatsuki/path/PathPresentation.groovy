@@ -12,7 +12,8 @@ enum PathPresentation {
   CERTIFICATE_BIRTH("$BASE/certificate/birth"),
   CERTIFICATE_MARRIAGE("$BASE/certificate/marriage"),
   CERTIFICATE_DEATH("$BASE/certificate/death"),
-  CERTIFICATE_SUCCESS("$BASE/certificate/success")
+  CERTIFICATE_SUCCESS("$BASE/certificate/success"),
+  PRICING("$BASE/pricing")
 
   String path
 
