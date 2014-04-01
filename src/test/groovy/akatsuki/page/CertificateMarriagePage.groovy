@@ -26,7 +26,7 @@ class CertificateMarriagePage extends CertificateBasePage {
     formMarriage.manLastName = 'Seiei'
     formMarriage.manFirstName = 'Setsuna F.'
     formMarriage.eventCountry = 'North Ireland'
-    formMarriage.serviceType = '2'
+    formMarriage.serviceType = 'prime'
     formMarriage.numberOfCertificateCopies = '2'
     formMarriage.numberOfApostilledCopies = '1'
   }

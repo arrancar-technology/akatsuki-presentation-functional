@@ -25,7 +25,7 @@ class CertificateDeathPage extends CertificateBasePage {
     formDeath.lastNameAtDeath = 'Haptism'
     formDeath.firstNameAtDeath = 'Allelujah'
     formDeath.eventCountry = 'Scotland'
-    formDeath.serviceType = '2'
+    formDeath.serviceType = 'prime'
     formDeath.numberOfCertificateCopies = '2'
     formDeath.numberOfApostilledCopies = '1'
   }
