@@ -10,5 +10,7 @@ class PricingPage extends BasePage {
 
   static content = {
     standardPricePanel { module PanelPrice, $('.panel.standard') }
+    rapidPricePanel { module PanelPrice, $('.panel.rapid') }
+    primePricePanel { module PanelPrice, $('.panel.prime') }
   }
 }
