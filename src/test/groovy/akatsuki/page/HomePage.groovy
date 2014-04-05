@@ -6,7 +6,7 @@ import akatsuki.path.PathPresentation
 class HomePage extends BasePage {
 
   static url = PathPresentation.BASE
-  static at = { title == "UK Official Certificate" }
+  static at = { title == "Simply Certificate" }
 
   static content = {
     panelBirth { module PanelBirthModule, $('#birth-section') }

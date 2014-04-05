@@ -55,7 +55,7 @@ class CertificateRequestSpec extends BaseSpecification {
       waitFor { at OrderSuccessPage }
 
     and:
-      successMessage.text() == "Thanks Lockon, we received your certificate order. You can find your order details below, and also you'll get an email that contains your order details. Please don't hesitate to contact us with any question you have. UK Official Certificate Team"
+      successMessage.text() == "Thanks Lockon, we received your certificate order. You can find your order details below, and also you'll get an email that contains your order details. Please don't hesitate to contact us with any question you have. Simply Certificate Team"
 
     when:
       toAt AdminOrdersListPage
