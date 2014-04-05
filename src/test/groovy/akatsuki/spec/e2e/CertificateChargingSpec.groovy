@@ -25,6 +25,7 @@ class CertificateChargingSpec extends BaseSpecification {
 
     then:
       formPayment.stepNavigation.paymentButton.disabled
+      formPayment.stepNavigation.paymentButton.text() == 'Processing'
 
     and:
       waitFor { formPayment.error.text() == errorMessage }
