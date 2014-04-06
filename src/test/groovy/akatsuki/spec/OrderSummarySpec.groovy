@@ -45,7 +45,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Rapid"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 2"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
-      orderSummary.certificateDetails.total.text() == "Total\n: £200"
+      orderSummary.certificateDetails.total.text() == "Total\n: £180"
 
     when:
       formBirth.stepNavigation.nextButton.click()
@@ -97,7 +97,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
-      orderSummary.certificateDetails.total.text() == "Total\n: £360"
+      orderSummary.certificateDetails.total.text() == "Total\n: £330"
 
     when:
       formMarriage.stepNavigation.nextButton.click()
@@ -145,7 +145,7 @@ class OrderSummarySpec extends BaseSpecification {
       orderSummary.certificateDetails.serviceType.text() == "Service Type\n: Prime"
       orderSummary.certificateDetails.numberOfCopies.text() == "Number of Copies\n: 3"
       orderSummary.certificateDetails.apostilledCopies.text() == "Apostilled Copies\n: 1"
-      orderSummary.certificateDetails.total.text() == "Total\n: £360"
+      orderSummary.certificateDetails.total.text() == "Total\n: £330"
 
     when:
       formDeath.stepNavigation.nextButton.click()
@@ -190,7 +190,7 @@ class OrderSummarySpec extends BaseSpecification {
       formBirth.numberOfApostilledCopies = '1'    // 1 apostilled
 
     then:
-      orderSummary.certificateDetails.total.text() == "Total\n: £200"
+      orderSummary.certificateDetails.total.text() == "Total\n: £180"
 
     when:
       formBirth.serviceType = 'prime'             // Prime
@@ -198,7 +198,7 @@ class OrderSummarySpec extends BaseSpecification {
       formBirth.numberOfApostilledCopies = '2'    // 2 apostilled
 
     then:
-      orderSummary.certificateDetails.total.text() == "Total\n: £480"
+      orderSummary.certificateDetails.total.text() == "Total\n: £420"
   }
   def validateDefaultOrderSummaryForAdditionalDetails() {
     assert orderSummary.additionalDetails.firstName.text() == "First Name\n: --"

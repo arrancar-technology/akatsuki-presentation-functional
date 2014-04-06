@@ -34,8 +34,8 @@ class PricingPageSpec extends BaseSpecification {
     where:
     pricePanel            | header     | price       | priceSub                       | features
     'standardPricePanel'  | "Standard" | "£25/cert"  | "+ £75/apostille (optional)"   | ["Dispatch in 10 working days", "Free delivery", "Support response in 48 hours", "Email Tracking", "-", "-"]
-    'rapidPricePanel'     | "Rapid"    | "£40/cert"  | "+ £120/apostille (optional)"  | ["Dispatch in 5 working days", "Free delivery", "Support response in 24 hours", "Email Tracking", "SMS Tracking", "-"]
-    'primePricePanel'     | "Prime"    | "£60/cert"  | "+ £180/apostille (optional)"  | ["Dispatch in 1 working day", "Free delivery", "Support response in 4 hours", "Email Tracking", "SMS Tracking", "Scan and email documents"]
+    'rapidPricePanel'     | "Rapid"    | "£40/cert"  | "+ £100/apostille (optional)"  | ["Dispatch in 5 working days", "Free delivery", "Support response in 24 hours", "Email Tracking", "SMS Tracking", "-"]
+    'primePricePanel'     | "Prime"    | "£60/cert"  | "+ £150/apostille (optional)"  | ["Dispatch in 1 working day", "Free delivery", "Support response in 4 hours", "Email Tracking", "SMS Tracking", "Scan and email documents"]
   }
 
   def "When certificate type is selected and apply button is clicked, user is taken to the correct page"() {
