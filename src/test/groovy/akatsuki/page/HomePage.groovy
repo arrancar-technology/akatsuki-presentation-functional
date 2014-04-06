@@ -1,6 +1,6 @@
 package akatsuki.page
 
-import akatsuki.page.module.PanelBirthModule
+import akatsuki.page.module.PanelApplyFormModule
 import akatsuki.path.PathPresentation
 
 class HomePage extends BasePage {
@@ -9,8 +9,8 @@ class HomePage extends BasePage {
   static at = { title == "Simply Certificate" }
 
   static content = {
-    panelBirth { module PanelBirthModule, $('#birth-section') }
-    panelMarriage { module PanelBirthModule, $('#marriage-section') }
-    panelDeath { module PanelBirthModule, $('#death-section') }
+    panelBirth { module PanelApplyFormModule, $('#birth-section'), certificateType: 'birth' }
+    panelMarriage { module PanelApplyFormModule, $('#marriage-section'), certificateType: 'marriage' }
+    panelDeath { module PanelApplyFormModule, $('#death-section'), certificateType: 'death' }
   }
 }
