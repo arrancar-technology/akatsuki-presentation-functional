@@ -7,6 +7,7 @@ import akatsuki.page.HomePage
 import akatsuki.page.OrderSuccessPage
 import akatsuki.page.admin.AdminOrdersListPage
 import akatsuki.spec.BaseSpecification
+import spock.lang.Shared
 import spock.lang.Unroll
 
 class CertificateRequestSpec extends BaseSpecification {
@@ -18,6 +19,8 @@ class CertificateRequestSpec extends BaseSpecification {
   def cleanupSpec() {
     logout()
   }
+
+  @Shared def previousOrderReferenceNumber
 
   @Unroll
   def "#certificateType certificate request is saved correctly"() {
@@ -62,9 +65,17 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       waitFor { orders(certificateType).rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
-      waitFor { orders(certificateType).rows[1].cells*.text() == ['1', 'Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
+      waitFor { orders(certificateType).rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
+
+    and:
+      def currentOrderReferenceNumber = orders(certificateType).rows[1].cells*.text().head()
+      if(previousOrderReferenceNumber) {
+        previousOrderReferenceNumber[0..2] == currentOrderReferenceNumber[0..2]
+        (previousOrderReferenceNumber[3..9] as Integer) + 1 == currentOrderReferenceNumber[3..9] as Integer
+      }
 
     when:
+      previousOrderReferenceNumber = currentOrderReferenceNumber
       showOrderDetails(certificateType, 1)
 
     then:
