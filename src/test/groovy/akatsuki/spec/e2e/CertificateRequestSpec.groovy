@@ -64,11 +64,11 @@ class CertificateRequestSpec extends BaseSpecification {
       toAt AdminOrdersListPage
 
     then:
-      waitFor { orders(certificateType).rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
-      waitFor { orders(certificateType).rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
 
     and:
-      def currentOrderReferenceNumber = orders(certificateType).rows[1].cells*.text().head()
+      def currentOrderReferenceNumber = oderListPanel(certificateType).list.rows[1].cells*.text().head()
       if(previousOrderReferenceNumber) {
         previousOrderReferenceNumber[0..2] == currentOrderReferenceNumber[0..2]
         (previousOrderReferenceNumber[3..9] as Integer) + 1 == currentOrderReferenceNumber[3..9] as Integer

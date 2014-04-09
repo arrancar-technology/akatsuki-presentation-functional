@@ -2,6 +2,8 @@ package akatsuki.spec
 
 import akatsuki.page.admin.AdminLoginPage
 import akatsuki.path.PathFixture
+import com.gmongo.GMongo
+import com.mongodb.DB
 import geb.spock.GebReportingSpec
 import groovyx.net.http.RESTClient
 
@@ -9,6 +11,7 @@ class BaseSpecification extends GebReportingSpec {
   static ConfigObject config = initializeConfig()
   static RESTClient stubulator = new RESTClient(config.stubulator.baseUrl)
   static RESTClient presentation = new RESTClient(config.presentation.baseUrl)
+  static DB db = new GMongo().getDB("test")
 
   private static ConfigObject initializeConfig() {
     return new ConfigSlurper(System.getProperty('test.env')).parse(configFileUrl)

@@ -12,7 +12,7 @@ class AdminOrdersListPage extends BasePage {
   static content = {
     header { $("h2") }
 
-    orders(required: false) { name -> module TableModule, $(".$name") }
+    oderListPanel { name -> module PanelOrderList, certificateType: name }
 
     orderDetailsBirth { module OrderDetailsEditBirthModule, $('.modal.birth') }
     orderDetailsMarriage { module OrderDetailsEditMarriageModule, $('.modal.marriage') }
@@ -20,7 +20,7 @@ class AdminOrdersListPage extends BasePage {
   }
 
   def showOrderDetails(orderType, rowNumber) {
-    orders(orderType).rows[rowNumber].cells[6].find('button')click()
+    oderListPanel(orderType).list.rows[rowNumber].cells[6].find('button')click()
   }
 
   def getOrderDetailsModuleFor(certificateType) {
