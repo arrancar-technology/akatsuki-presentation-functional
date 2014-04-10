@@ -22,21 +22,4 @@ class AdminOrdersListPage extends BasePage {
   def showOrderDetails(orderType, rowNumber) {
     oderListPanel(orderType).list.rows[rowNumber].cells[6].find('button')click()
   }
-
-  def getOrderDetailsModuleFor(certificateType) {
-    def orderDetailsModule
-    switch (certificateType) {
-      case 'birth':
-        orderDetailsModule = orderDetailsBirth
-        break
-      case 'marriage':
-        orderDetailsModule = orderDetailsMarriage
-        break
-      case 'death':
-        orderDetailsModule = orderDetailsDeath
-        break
-    }
-
-    return orderDetailsModule
-  }
 }

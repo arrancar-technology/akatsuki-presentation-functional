@@ -3,6 +3,7 @@ package akatsuki.page.module
 class OrderDetailsEditMarriageModule extends OrderDetailsEditBaseModule {
 
   static content = {
+    status { module InputDateModule, $('.status') }
     dateOfMarriage { module InputDateModule, $('.date-of-marriage-container') }
     placeOfMarriage { module InputTextFieldModule, $('#place-of-marriage') }
     womanLastName { module InputTextFieldModule, $('#woman-last-name') }
@@ -12,7 +13,8 @@ class OrderDetailsEditMarriageModule extends OrderDetailsEditBaseModule {
   }
 
   def validateCertificateDetails() {
-    waitFor { dateOfMarriage.text() == '2 / \n7 / \n1980' }
+    waitFor { status.text() == 'paid' }
+    dateOfMarriage.text() == '2 / \n7 / \n1980'
     assert placeOfMarriage.text() == 'London'
     assert womanLastName.text() == 'Ismail'
     assert womanFirstName.text() == 'Marina'
