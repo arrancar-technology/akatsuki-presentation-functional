@@ -14,7 +14,7 @@ class OrderDetailsEditBaseModule extends FormModule {
   def validateAdditionalInfoDetails() {
     assert additionalInfoDetails.firstName.text() == 'Lockon'
     assert additionalInfoDetails.lastName.text() == 'Stratos'
-    assert additionalInfoDetails.email.text() == 'lockon.stratos@gmail.com'
+    assert additionalInfoDetails.email.text() == 'lockon.stratos@example.com'
     assert additionalInfoDetails.address1.text() == 'Station Parade'
     assert additionalInfoDetails.address2.text() == 'Kobe Road'
     assert additionalInfoDetails.city.text() == 'Tokyo'

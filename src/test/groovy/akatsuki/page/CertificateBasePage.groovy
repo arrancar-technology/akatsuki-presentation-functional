@@ -20,7 +20,7 @@ abstract class CertificateBasePage extends BasePage {
   def populateAdditionalDetails() {
     formAdditional.firstName = 'Lockon'
     formAdditional.lastName = 'Stratos'
-    formAdditional.email = 'lockon.stratos@gmail.com'
+    formAdditional.email = 'lockon.stratos@example.com'
     formAdditional.address.address1 = 'Station Parade'
     formAdditional.address.address2 = 'Kobe Road'
     formAdditional.address.city = 'Tokyo'

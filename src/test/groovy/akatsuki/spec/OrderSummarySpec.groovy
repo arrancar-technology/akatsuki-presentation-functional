@@ -225,7 +225,7 @@ class OrderSummarySpec extends BaseSpecification {
   def validateOrderSummaryForAdditionalDetails() {
     assert orderSummary.additionalDetails.firstName.text() == "First Name\n: Lockon"
     assert orderSummary.additionalDetails.lastName.text() == "Last Name\n: Stratos"
-    assert orderSummary.additionalDetails.email.text() == "Email Address\n: lockon.stratos@gmail.com"
+    assert orderSummary.additionalDetails.email.text() == "Email Address\n: lockon.stratos@example.com"
     assert orderSummary.additionalDetails.address1.text() == "Address 1\n: Station Parade"
     assert orderSummary.additionalDetails.address2.text() == "Address 2\n: Kobe Road"
     assert orderSummary.additionalDetails.city.text() == "City\n: Tokyo"

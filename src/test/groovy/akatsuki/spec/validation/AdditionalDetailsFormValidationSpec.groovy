@@ -46,7 +46,7 @@ class AdditionalDetailsFormValidationSpec extends BaseSpecification {
       formAdditional.email.isError()
 
     when:
-      formAdditional.email = 'lockon.stratos@gmail.com'
+      formAdditional.email = 'lockon.stratos@example.com'
 
     then:
       formAdditional.email.isSuccess()

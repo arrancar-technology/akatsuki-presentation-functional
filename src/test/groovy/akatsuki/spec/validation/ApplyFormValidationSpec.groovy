@@ -35,7 +35,7 @@ class ApplyFormValidationSpec extends BaseSpecification {
       panelBirth.form.email.isError()
 
     when:
-      panelBirth.form.email = "lockon.stratos@gmail.com"
+      panelBirth.form.email = "lockon.stratos@example.com"
 
     then:
       panelBirth.form.email.isSuccess()

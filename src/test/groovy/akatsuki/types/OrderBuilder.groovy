@@ -17,7 +17,7 @@ class OrderBuilder {
     birth: [
       "firstName": "Lockon",
       "lastName": "Stratos",
-      "email": "lockon.stratos@gmail.com",
+      "email": "lockon.stratos@example.com",
       "referenceNumber": "RC7102010969813",
       "status": "paid",
       "certificate": [

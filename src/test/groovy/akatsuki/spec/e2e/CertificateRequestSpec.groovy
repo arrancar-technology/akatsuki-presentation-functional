@@ -32,7 +32,7 @@ class CertificateRequestSpec extends BaseSpecification {
         applyButton.click()
         form.firstName = 'Lockon'
         form.lastName = 'Stratos'
-        form.email = 'lockon.stratos@gmail.com'
+        form.email = 'lockon.stratos@example.com'
         form.processButton.click()
       }
 
@@ -40,7 +40,7 @@ class CertificateRequestSpec extends BaseSpecification {
       waitFor { at certificatePage }
       formAdditional.firstName.value() == 'Lockon'
       formAdditional.lastName.value() == 'Stratos'
-      formAdditional.email.value() == 'lockon.stratos@gmail.com'
+      formAdditional.email.value() == 'lockon.stratos@example.com'
 
     when:
       "populate${certificateType.capitalize()}Details"()
@@ -65,7 +65,7 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       waitFor { oderListPanel(certificateType).list.rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
-      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@gmail.com', '07157158989', 'paid', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@example.com', '07157158989', 'paid', 'Details'] }
 
     and:
       def currentOrderReferenceNumber = oderListPanel(certificateType).list.rows[1].cells*.text().head()
