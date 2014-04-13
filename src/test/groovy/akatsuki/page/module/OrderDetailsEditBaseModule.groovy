@@ -20,7 +20,7 @@ class OrderDetailsEditBaseModule extends FormModule {
     assert additionalInfoDetails.city.text() == 'Tokyo'
     assert additionalInfoDetails.postcode.text() == 'W8 9DF'
     assert additionalInfoDetails.country.text() == 'JP'
-    assert additionalInfoDetails.phone.text() == '07157158989'
+    assert additionalInfoDetails.phone.text() == '07517158978'
 
     return true
   }

@@ -231,7 +231,7 @@ class OrderSummarySpec extends BaseSpecification {
     assert orderSummary.additionalDetails.city.text() == "City\n: Tokyo"
     assert orderSummary.additionalDetails.postcode.text() == "Postcode\n: W8 9DF"
     assert orderSummary.additionalDetails.country.text() == "Country\n: Japan"
-    assert orderSummary.additionalDetails.phone.text() == "Phone\n: 07157158989"
+    assert orderSummary.additionalDetails.phone.text() == "Phone\n: 07517158978"
 
     return true
   }

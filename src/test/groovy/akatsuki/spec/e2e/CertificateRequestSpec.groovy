@@ -10,6 +10,7 @@ import akatsuki.spec.BaseSpecification
 import spock.lang.Shared
 import spock.lang.Unroll
 
+@Unroll
 class CertificateRequestSpec extends BaseSpecification {
 
   def setupSpec() {
@@ -22,7 +23,6 @@ class CertificateRequestSpec extends BaseSpecification {
 
   @Shared def previousOrderReferenceNumber
 
-  @Unroll
   def "#certificateType certificate request is saved correctly"() {
     given:
       toAt HomePage
@@ -65,7 +65,7 @@ class CertificateRequestSpec extends BaseSpecification {
 
     then:
       waitFor { oderListPanel(certificateType).list.rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
-      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@example.com', '07157158989', 'paid', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@example.com', '07517158978', 'paid', 'Details'] }
 
     and:
       def currentOrderReferenceNumber = oderListPanel(certificateType).list.rows[1].cells*.text().head()
