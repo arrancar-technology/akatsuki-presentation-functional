@@ -16,6 +16,7 @@ enum PathPresentation {
   PRICING("$BASE/pricing"),
   TERMS_AND_CONDITIONS("$BASE/terms-and-conditions"),
   ABOUT_US("$BASE/about-us"),
+  PRIVACY_POLICY("$BASE/privacy-policy"),
   ERROR_NOT_FOUND("$BASE/404"),
   ERROR_INTERNAL_SERVER("$BASE/500")
 
