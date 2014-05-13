@@ -2,6 +2,7 @@ package akatsuki.spec
 
 import akatsuki.page.AboutUsPage
 import akatsuki.page.ContactUsPage
+import akatsuki.page.FaqPage
 import akatsuki.page.PrivacyPolicyPage
 import akatsuki.page.TermsAndConditionsPage
 import spock.lang.Unroll
@@ -17,6 +18,6 @@ class StaticPageSpec extends BaseSpecification {
       at page
 
     where:
-      page << [TermsAndConditionsPage, AboutUsPage, PrivacyPolicyPage, ContactUsPage]
+      page << [TermsAndConditionsPage, AboutUsPage, PrivacyPolicyPage, ContactUsPage, FaqPage]
   }
 }
