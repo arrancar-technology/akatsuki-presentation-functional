@@ -14,6 +14,7 @@ enum PathPresentation {
   CERTIFICATE_DEATH("$BASE/certificate/death"),
   CERTIFICATE_SUCCESS("$BASE/certificate/success"),
   PRICING("$BASE/pricing"),
+  TERMS_AND_CONDITIONS("$BASE/terms-and-conditions"),
   ERROR_NOT_FOUND("$BASE/404"),
   ERROR_INTERNAL_SERVER("$BASE/500")
 
