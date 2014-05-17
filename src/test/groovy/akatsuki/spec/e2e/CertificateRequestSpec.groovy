@@ -1,10 +1,6 @@
 package akatsuki.spec.e2e
 
-import akatsuki.page.CertificateBirthPage
-import akatsuki.page.CertificateDeathPage
-import akatsuki.page.CertificateMarriagePage
-import akatsuki.page.HomePage
-import akatsuki.page.OrderSuccessPage
+import akatsuki.page.*
 import akatsuki.page.admin.AdminOrdersListPage
 import akatsuki.spec.BaseSpecification
 import spock.lang.Shared
@@ -58,7 +54,10 @@ class CertificateRequestSpec extends BaseSpecification {
       waitFor { at OrderSuccessPage }
 
     and:
-      successMessage.text() == "Thanks Lockon, we received your certificate order. You can find your order details below, and also you'll get an email that contains your order details. Please don't hesitate to contact us with any question you have. Simply Certificate Team"
+      successMessage.text() == "Thanks Lockon, we received your certificate order. You will get an email that contains your order details.\n" +
+        "Please don't hesitate to contact us with any question you have.\n" +
+        "\n" +
+        "Simply Certificate Team"
 
     when:
       toAt AdminOrdersListPage
