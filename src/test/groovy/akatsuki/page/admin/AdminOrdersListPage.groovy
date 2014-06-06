@@ -20,6 +20,6 @@ class AdminOrdersListPage extends BasePage {
   }
 
   def showOrderDetails(orderType, rowNumber) {
-    oderListPanel(orderType).list.rows[rowNumber].cells[6].find('button')click()
+    oderListPanel(orderType).list.rows[rowNumber].cells[7].find('button')click()
   }
 }

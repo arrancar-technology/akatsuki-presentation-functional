@@ -63,8 +63,8 @@ class CertificateRequestSpec extends BaseSpecification {
       toAt AdminOrdersListPage
 
     then:
-      waitFor { oderListPanel(certificateType).list.rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Details'] }
-      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail() == ['Lockon', 'Stratos', 'lockon.stratos@example.com', '07517158978', 'paid', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[0].cells*.text() == ['#', 'First Name', 'Last Name', 'Email', 'Phone', 'Status', 'Create Date', 'Details'] }
+      waitFor { oderListPanel(certificateType).list.rows[1].cells*.text().tail()[0..-3] == ['Lockon', 'Stratos', 'lockon.stratos@example.com', '07517158978', 'paid'] }
 
     and:
       def currentOrderReferenceNumber = oderListPanel(certificateType).list.rows[1].cells*.text().head()
