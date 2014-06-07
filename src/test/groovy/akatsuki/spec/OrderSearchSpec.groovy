@@ -13,7 +13,7 @@ class OrderSearchSpec extends BaseSpecification {
   @Shared def createDate
 
   def setupSpec() {
-    createDate = new SimpleDateFormat("yyyy.MM.dd-hh:mm").format(new Date()).toString()
+    createDate = new SimpleDateFormat("yyyy.MM.dd-h:mm").format(new Date()).toString()
     db.orders.save(new OrderBuilder([firstName: 'Graham', lastName: 'Aker', email: 'graham.aker@example.com', postcode: 'w15ld', referenceNumber: 'RC7102010969813']).build())
     db.orders.save(new OrderBuilder([firstName: 'Ribbons', lastName: 'Almark', email: 'ribbons.almark@example.com', postcode: 'tw8f5', referenceNumber: 'RZ4104077969813']).build())
     db.orders.save(new OrderBuilder([firstName: 'Shirin', lastName: 'Bakhtiar', email: 'shirin.bakhtiar@example.com', postcode: 'n8df1', referenceNumber: 'RJ0133011969801']).build())
