@@ -11,7 +11,7 @@ class CertificateDetailsBirthFormValidationSpec extends BaseSpecification {
 
     expect: // Check defaults
       formBirth.numberOfCertificateCopies.text() == '1'
-      formBirth.numberOfApostilledCopies.text() == '-- (£75 per stamp)'
+      formBirth.numberOfApostilledCopies.text() == '-- (£75 per stamp, up to +7 despatch days)'
 
     when:
       formBirth.stepNavigation.nextButton.click()
