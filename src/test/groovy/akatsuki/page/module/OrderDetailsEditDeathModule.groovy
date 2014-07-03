@@ -6,14 +6,16 @@ class OrderDetailsEditDeathModule extends OrderDetailsEditBaseModule {
     status { module InputDateModule, $('.status') }
     dateOfDeath { module InputDateModule, $('.date-of-death-container') }
     placeOfDeath { module InputTextFieldModule, $('#place-of-death') }
+    dateOfBirth { module InputDateModule, $('.date-of-birth-container') }
     lastNameAtDeath { module InputTextFieldModule, $('#last-name-at-death') }
     firstNameAtDeath { module InputTextFieldModule, $('#first-name-at-death') }
   }
 
   def validateCertificateDetails() {
     waitFor { status.text() == 'paid' }
-    dateOfDeath.text() == '11 / \n11 / \n2083'
+    assert dateOfDeath.text() == '11 / \n11 / \n2083'
     assert placeOfDeath.text() == 'London'
+    assert dateOfBirth.text() == '16 / \n10 / \n2000'
     assert lastNameAtDeath.text() == 'Haptism'
     assert firstNameAtDeath.text() == 'Allelujah'
 

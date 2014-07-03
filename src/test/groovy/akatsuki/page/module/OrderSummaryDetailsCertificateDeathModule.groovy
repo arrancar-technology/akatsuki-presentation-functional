@@ -5,6 +5,7 @@ class OrderSummaryDetailsCertificateDeathModule extends OrderSummaryDetailsCerti
   static content = {
     dateOfDeath { $('.dateOfDeath') }
     placeOfDeath { $('.placeOfDeath') }
+    dateOfBirth { $('.dateOfBirth') }
     lastNameAtDeath { $('.lastNameAtDeath') }
     firstNameAtDeath { $('.firstNameAtDeath') }
   }

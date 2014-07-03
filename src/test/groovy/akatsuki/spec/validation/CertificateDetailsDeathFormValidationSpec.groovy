@@ -17,6 +17,10 @@ class CertificateDetailsDeathFormValidationSpec extends BaseSpecification {
       formDeath.dateOfDeath.day.isError()
       formDeath.dateOfDeath.month.isError()
       formDeath.dateOfDeath.year.isError()
+      formDeath.dateOfBirth.isError()
+      formDeath.dateOfBirth.day.isError()
+      formDeath.dateOfBirth.month.isError()
+      formDeath.dateOfBirth.year.isError()
       formDeath.placeOfDeath.isError()
       formDeath.lastNameAtDeath.isError()
       formDeath.firstNameAtDeath.isError()
@@ -42,6 +46,25 @@ class CertificateDetailsDeathFormValidationSpec extends BaseSpecification {
       formDeath.dateOfDeath.day.isSuccess()
       formDeath.dateOfDeath.month.isSuccess()
       formDeath.dateOfDeath.year.isSuccess()
+
+    // TODO: change to birth date validation
+    when:
+      interact { moveToElement(formDeath.dateOfBirth) }
+      formDeath.dateOfBirth.year.click()
+
+    then:
+      formDeath.dateOfBirth.year.error.message.text() == 'Please enter year of death in YYYY format'
+
+    when:
+      formDeath.dateOfBirth.day = '9'
+      formDeath.dateOfBirth.month = 'September'
+      formDeath.dateOfBirth.year = '2083'
+
+    then:
+      formDeath.dateOfBirth.isSuccess()
+      formDeath.dateOfBirth.day.isSuccess()
+      formDeath.dateOfBirth.month.isSuccess()
+      formDeath.dateOfBirth.year.isSuccess()
 
     and:
       checkErrorMessageAndValidate(formDeath, 'placeOfDeath', 'Please enter place of death', 'London')

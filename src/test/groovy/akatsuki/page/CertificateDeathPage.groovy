@@ -22,6 +22,9 @@ class CertificateDeathPage extends CertificateBasePage {
     formDeath.dateOfDeath.month = 'November'
     formDeath.dateOfDeath.year = '2083'
     formDeath.placeOfDeath = 'London'
+    formDeath.dateOfBirth.day = '15' // 0 indexed
+    formDeath.dateOfBirth.month = 'October'
+    formDeath.dateOfBirth.year = '2000'
     formDeath.lastNameAtDeath = 'Haptism'
     formDeath.firstNameAtDeath = 'Allelujah'
     formDeath.eventCountry = 'Scotland'

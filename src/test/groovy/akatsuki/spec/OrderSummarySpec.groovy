@@ -121,6 +121,7 @@ class OrderSummarySpec extends BaseSpecification {
     expect:
       orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: -- / -- / --"
       orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: --"
+      orderSummary.certificateDetails.dateOfBirth.text() == "Date of Birth\n: -- / -- / --"
       orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: --"
       orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: --"
       orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: England and Wales"
@@ -139,6 +140,7 @@ class OrderSummarySpec extends BaseSpecification {
     then:
       orderSummary.certificateDetails.dateOfDeath.text() == "Date of Death\n: 11 / November / 2083"
       orderSummary.certificateDetails.placeOfDeath.text() == "Place of Death\n: London"
+      orderSummary.certificateDetails.dateOfBirth.text() == "Date of Birth\n: 16 / October / 2000"
       orderSummary.certificateDetails.lastNameAtDeath.text() == "Last Name of Deceased\n: Haptism"
       orderSummary.certificateDetails.firstNameAtDeath.text() == "First Name of Deceased\n: Allelujah"
       orderSummary.certificateDetails.eventCountry.text() == "Country of Event\n: Scotland"
