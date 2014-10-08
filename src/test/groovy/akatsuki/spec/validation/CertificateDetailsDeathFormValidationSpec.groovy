@@ -47,18 +47,17 @@ class CertificateDetailsDeathFormValidationSpec extends BaseSpecification {
       formDeath.dateOfDeath.month.isSuccess()
       formDeath.dateOfDeath.year.isSuccess()
 
-    // TODO: change to birth date validation
     when:
       interact { moveToElement(formDeath.dateOfBirth) }
       formDeath.dateOfBirth.year.click()
 
     then:
-      formDeath.dateOfBirth.year.error.message.text() == 'Please enter year of death in YYYY format'
+      formDeath.dateOfBirth.year.error.message.text() == 'Please enter year of birth in YYYY format'
 
     when:
       formDeath.dateOfBirth.day = '9'
-      formDeath.dateOfBirth.month = 'September'
-      formDeath.dateOfBirth.year = '2083'
+      formDeath.dateOfBirth.month = 'February'
+      formDeath.dateOfBirth.year = '2003'
 
     then:
       formDeath.dateOfBirth.isSuccess()
