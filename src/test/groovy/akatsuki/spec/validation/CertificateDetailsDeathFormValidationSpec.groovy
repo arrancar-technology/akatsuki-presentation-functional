@@ -52,7 +52,9 @@ class CertificateDetailsDeathFormValidationSpec extends BaseSpecification {
       formDeath.dateOfBirth.year.click()
 
     then:
-      formDeath.dateOfBirth.year.error.message.text() == 'Please enter year of birth in YYYY format'
+      waitFor {
+        formDeath.dateOfBirth.year.error.message.text() == 'Please enter year of birth in YYYY format'
+      }
 
     when:
       formDeath.dateOfBirth.day = '9'

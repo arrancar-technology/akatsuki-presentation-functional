@@ -10,7 +10,7 @@ class HomePage extends BasePage {
 
   static content = {
     panelBirth { module PanelApplyFormModule, $('#birth-section'), certificateType: 'birth' }
-    panelMarriage { module PanelApplyFormModule, $('#marriage-section'), certificateType: 'marriage' }
-    panelDeath { module PanelApplyFormModule, $('#death-section'), certificateType: 'death' }
+//    panelMarriage { module PanelApplyFormModule, $('#marriage-section'), certificateType: 'marriage' }
+//    panelDeath { module PanelApplyFormModule, $('#death-section'), certificateType: 'death' }
   }
 }

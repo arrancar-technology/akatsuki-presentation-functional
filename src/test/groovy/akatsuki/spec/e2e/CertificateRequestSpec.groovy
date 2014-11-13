@@ -21,7 +21,7 @@ class CertificateRequestSpec extends BaseSpecification {
 
   def "#certificateType certificate request is saved correctly"() {
     given:
-      toAt HomePage
+      toAt homepage
 
     when:
       page."panel${certificateType.capitalize()}".with {
@@ -82,10 +82,10 @@ class CertificateRequestSpec extends BaseSpecification {
       page."orderDetails${certificateType.capitalize()}".validateAdditionalInfoDetails()
 
     where:
-      certificateType | certificatePage
-      'birth'         | CertificateBirthPage
-      'marriage'      | CertificateMarriagePage
-      'death'         | CertificateDeathPage
+      certificateType | homepage         | certificatePage
+      'birth'         | LandingBirthPage | CertificateBirthPage
+//      'marriage'      | CertificateMarriagePage
+//      'death'         | CertificateDeathPage
   }
 
   // TODO: [DK] write test for editing order on admin console

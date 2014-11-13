@@ -1,13 +1,13 @@
 package akatsuki.spec.validation
 
-import akatsuki.page.HomePage
+import akatsuki.page.LandingBirthPage
 import akatsuki.spec.BaseSpecification
 
 class MaximumLengthValidationSpec extends BaseSpecification {
 
   def "apply form should have correct form validation"() {
     given:
-      toAt HomePage
+      toAt LandingBirthPage
 
     when:
       panelBirth.applyButton.click()

@@ -9,6 +9,7 @@ enum PathPresentation {
   ADMIN_HOMEPAGE("$BASE/admin"),
   ADMIN_ORDERS_LIST("$BASE/admin/orders"),
   API_1_STATUS("$BASE/api/1/status"),
+  LANDING_BIRTH("$BASE/replacement-birth-certificate"),
   CERTIFICATE_BIRTH("$BASE/certificate/birth"),
   CERTIFICATE_MARRIAGE("$BASE/certificate/marriage"),
   CERTIFICATE_DEATH("$BASE/certificate/death"),
