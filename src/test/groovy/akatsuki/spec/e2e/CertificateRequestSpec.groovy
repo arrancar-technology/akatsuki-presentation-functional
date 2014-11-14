@@ -82,10 +82,10 @@ class CertificateRequestSpec extends BaseSpecification {
       page."orderDetails${certificateType.capitalize()}".validateAdditionalInfoDetails()
 
     where:
-      certificateType | homepage         | certificatePage
-      'birth'         | LandingBirthPage | CertificateBirthPage
-//      'marriage'      | CertificateMarriagePage
-//      'death'         | CertificateDeathPage
+      certificateType | homepage            | certificatePage
+      'birth'         | LandingBirthPage    | CertificateBirthPage
+      'marriage'      | LandingMarriagePage | CertificateMarriagePage
+      'death'         | LandingDeathPage    | CertificateDeathPage
   }
 
   // TODO: [DK] write test for editing order on admin console
