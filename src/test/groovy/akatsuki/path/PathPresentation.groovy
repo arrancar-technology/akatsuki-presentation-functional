@@ -12,6 +12,7 @@ enum PathPresentation {
   LANDING_BIRTH("$BASE/replacement-birth-certificate"),
   LANDING_MARRIAGE("$BASE/replacement-marriage-certificate"),
   LANDING_DEATH("$BASE/copy-of-death-certificate"),
+  LANDING_BLOG("$BASE/blog"),
   CERTIFICATE_BIRTH("$BASE/certificate/birth"),
   CERTIFICATE_MARRIAGE("$BASE/certificate/marriage"),
   CERTIFICATE_DEATH("$BASE/certificate/death"),
