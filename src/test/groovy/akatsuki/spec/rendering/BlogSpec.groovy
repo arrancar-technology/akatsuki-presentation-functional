@@ -1,10 +1,11 @@
-package akatsuki.spec
+package akatsuki.spec.rendering
 
 import akatsuki.page.*
+import akatsuki.spec.BaseSpecification
 
 class BlogSpec extends BaseSpecification {
 
-  def "static pages are rendered properly"() {
+  def "blog landing page renders post information of articles"() {
     given:
       toAt BlogLandingPage
       def lastPostIndex = articles.size() - 1
